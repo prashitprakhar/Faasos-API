@@ -1,0 +1,30 @@
+{
+  "name": "faasos-api",
+  "version": "1.0.0",
+  "description": "Faasos APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashitprakhar/Faasos-API.git"
+  },
+  "keywords": [
+    "Sample-Faasos-API"
+  ],
+  "author": "Prashit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prashitprakhar/Faasos-API/issues"
+  },
+  "homepage": "https://github.com/prashitprakhar/Faasos-API#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.0",
+    "nodemon": "^1.18.4"
+  }
+}
