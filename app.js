@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     res.append('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
-
+app.use(express.static(__dirname+'dist/faasos-spa'));
 app.use('/api/faasos', appRouterFactory);
 
 app.listen(port, () => {
