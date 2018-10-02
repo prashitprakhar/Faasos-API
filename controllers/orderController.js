@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const { orderModel } = require('./../model/order-model');
+const { predictionModel } = require('./../model/prediction-model');
 const { mongoose } = require('./../db-connection/mongoose-connection');
 const bodyParser = require('body-parser');
 
@@ -48,5 +49,20 @@ exports.get_all_orders = function (req, res, next) {
             return reject(res.status(400).send(err));
         })
     })
+}
 
+exports.get_all_data_prediction_order = function (req, res, next) {
+    let allData = [];
+    return new Promise((resolve, reject) => {
+        orderModel.find({}, null, { sort: { timestamp: -1 } }).then(docs => {
+            allData.push(docs);
+        }).then(() => {
+            predictionModel.find().then(predDocs => {
+                allData.push(predDocs);
+                return resolve(res.status(200).send(allData));
+            })
+        }).catch(err => {
+            return reject(err);
+        })
+    })
 }
