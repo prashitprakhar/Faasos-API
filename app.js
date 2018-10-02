@@ -5,6 +5,7 @@ const router = express.Router();
 const port = process.env.PORT || 8080;
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
@@ -15,6 +16,12 @@ app.use((req, res, next) => {
     next();
 });
 app.use(express.static(__dirname+'dist/faasos-spa'));
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('client/build'));
+// }
+app.all('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/dist/faasos-spa','index.html'));
+})
 app.use('/api/faasos', appRouterFactory);
 
 app.listen(port, () => {
