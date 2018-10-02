@@ -1352,7 +1352,7 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     API_BASE: {
-        faasos_api: 'http://localhost:3000/api/faasos/'
+        faasos_api: 'https://glacial-castle-43349.herokuapp.com/api/faasos/'
     }
 };
 /*
