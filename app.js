@@ -15,10 +15,13 @@ app.use((req, res, next) => {
     res.append('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
-app.use(express.static(__dirname+'dist/faasos-spa'));
-// if (process.env.NODE_ENV === 'production') {
-// 	app.use(express.static('client/build'));
-// }
+
+//app.use(express.static(__dirname+'dist/faasos-spa'));
+
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('dist/faasos-spa'));
+}
+
 
 app.use('/api/faasos', appRouterFactory);
 
