@@ -19,10 +19,12 @@ app.use(express.static(__dirname+'dist/faasos-spa'));
 // if (process.env.NODE_ENV === 'production') {
 // 	app.use(express.static('client/build'));
 // }
+
+app.use('/api/faasos', appRouterFactory);
+
 app.all('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/dist/faasos-spa','index.html'));
 })
-app.use('/api/faasos', appRouterFactory);
 
 app.listen(port, () => {
     console.log("Listening on port ",port);

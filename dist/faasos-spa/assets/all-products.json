@@ -1,0 +1,29 @@
+{
+    "Products": [
+        {
+            "productid": 101,
+            "productname": "Veg Biryani",
+            "objectid" : "5bb33caf1a72177019d43ccc"
+        },
+        {
+            "productid": 201,
+            "productname": "Chicken Biryani",
+            "objectid" : "5bb33e9ecd97237042b12f90"
+        },
+        {
+            "productid": 301,
+            "productname": "Mutton Biryani",
+            "objectid" : "5bb33ee2cd97237042b12f93"
+        },
+        {
+            "productid": 401,
+            "productname": "Fried Rice",
+            "objectid" : "5bb33caf1a72177019d43ccc"
+        },
+        {
+            "productid": 501,
+            "productname": "Plain Naan",
+            "objectid" : "5bb33caf1a72177019d43ccc"
+        }
+    ]
+}
