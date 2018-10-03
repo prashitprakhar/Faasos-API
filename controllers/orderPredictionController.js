@@ -51,9 +51,6 @@ exports.place_orders = function (req, res, next) {
     let id = req.params.id;
     let body = _.pick(req.body, ['order']);
     return new Promise((resolve, reject) => {
-        if(req.body.username === null || req.body.username === undefined){
-            Promise.reject(res.status(400).send())
-        }
         orderPredictionModel.findByIdAndUpdate(
             id,
             { $push: { "orders": body.order } },
