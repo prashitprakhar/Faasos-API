@@ -25,11 +25,16 @@ export class OrdersService {
     private router: Router) { }
 
   getAllProductsList() {
-    this.httpRequestsService.getAPI('./../assets/all-products.json')
+    this.httpRequestsService.getAPI(this.apiUrl + '/alldata')
       .subscribe(data => {
         this._products = data;
         this._allProducts.next(data);
       })
+    // this.httpRequestsService.getAPI('./../assets/all-products.json')
+    //   .subscribe(data => {
+    //     this._products = data;
+    //     this._allProducts.next(data);
+    //   })
   }
 
   subscribeAllProducts(): Observable<any> {

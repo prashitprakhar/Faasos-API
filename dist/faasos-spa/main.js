@@ -107,12 +107,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_failure_page_failure_page_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/failure-page/failure-page.component */ "./src/app/components/failure-page/failure-page.component.ts");
 /* harmony import */ var _components_orders_display_orders_display_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/orders-display/orders-display.component */ "./src/app/components/orders-display/orders-display.component.ts");
 /* harmony import */ var _components_show_all_prediction_data_show_all_prediction_data_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/show-all-prediction-data/show-all-prediction-data.component */ "./src/app/components/show-all-prediction-data/show-all-prediction-data.component.ts");
+/* harmony import */ var _components_add_new_product_add_new_product_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/add-new-product/add-new-product.component */ "./src/app/components/add-new-product/add-new-product.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -143,7 +145,8 @@ var AppModule = /** @class */ (function () {
                 _components_success_page_success_page_component__WEBPACK_IMPORTED_MODULE_12__["SuccessPageComponent"],
                 _components_failure_page_failure_page_component__WEBPACK_IMPORTED_MODULE_13__["FailurePageComponent"],
                 _components_orders_display_orders_display_component__WEBPACK_IMPORTED_MODULE_14__["OrdersDisplayComponent"],
-                _components_show_all_prediction_data_show_all_prediction_data_component__WEBPACK_IMPORTED_MODULE_15__["ShowAllPredictionDataComponent"]
+                _components_show_all_prediction_data_show_all_prediction_data_component__WEBPACK_IMPORTED_MODULE_15__["ShowAllPredictionDataComponent"],
+                _components_add_new_product_add_new_product_component__WEBPACK_IMPORTED_MODULE_16__["AddNewProductComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -181,6 +184,10 @@ var AppModule = /** @class */ (function () {
                         component: _components_failure_page_failure_page_component__WEBPACK_IMPORTED_MODULE_13__["FailurePageComponent"]
                     },
                     {
+                        path: 'addnewproduct',
+                        component: _components_add_new_product_add_new_product_component__WEBPACK_IMPORTED_MODULE_16__["AddNewProductComponent"]
+                    },
+                    {
                         path: '**',
                         component: _components_not_found_page_not_found_page_component__WEBPACK_IMPORTED_MODULE_10__["NotFoundPageComponent"]
                     }
@@ -191,6 +198,106 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/add-new-product/add-new-product.component.css":
+/*!**************************************************************************!*\
+  !*** ./src/app/components/add-new-product/add-new-product.component.css ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n form { \n     width: 30%;\n     padding: 2px;\n }"
+
+/***/ }),
+
+/***/ "./src/app/components/add-new-product/add-new-product.component.html":
+/*!***************************************************************************!*\
+  !*** ./src/app/components/add-new-product/add-new-product.component.html ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n  <form>\n      <div class=\"form-group\">\n      <label for=\"productName\">Enter Product Name </label> &nbsp;\n      <input type=\"text\" calss=\"form-control\" id=\"productName\" name=\"productName\" [(ngModel)]=\"productName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productId\">Enter Product ID : </label> &nbsp;\n      <input type=\"text\" calss=\"form-control\" id=\"productId\" name=\"productId\" [(ngModel)]=\"productId\">\n    </div>\n    <div class=\"form-group\">\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"addNewProduct()\">Create</button>\n      </div>\n  </form>\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/components/add-new-product/add-new-product.component.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/components/add-new-product/add-new-product.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: AddNewProductComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddNewProductComponent", function() { return AddNewProductComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_add_new_product_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/add-new-product.service */ "./src/app/services/add-new-product.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AddNewProductComponent = /** @class */ (function () {
+    function AddNewProductComponent(addNewProductService) {
+        this.addNewProductService = addNewProductService;
+        this.newProductTemplate = {
+            productid: 0,
+            productname: '',
+            prediction: [
+                {
+                    predictedquantity: 0
+                }
+            ],
+            orders: [
+                {
+                    orderedamount: 0
+                }
+            ]
+        };
+    }
+    AddNewProductComponent.prototype.ngOnInit = function () {
+    };
+    AddNewProductComponent.prototype.addNewProduct = function () {
+        this.newProductTemplate = {
+            productid: this.productId,
+            productname: this.productName,
+            prediction: [
+                {
+                    predictedquantity: 0
+                }
+            ],
+            orders: [
+                {
+                    orderedamount: 0
+                }
+            ]
+        };
+        this.addNewProductService.addNewProduct(this.newProductTemplate);
+        // .subscribe(data => {
+        //   console.log("Data of new Product : ",data)
+        // })
+    };
+    AddNewProductComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-add-new-product',
+            template: __webpack_require__(/*! ./add-new-product.component.html */ "./src/app/components/add-new-product/add-new-product.component.html"),
+            styles: [__webpack_require__(/*! ./add-new-product.component.css */ "./src/app/components/add-new-product/add-new-product.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_add_new_product_service__WEBPACK_IMPORTED_MODULE_1__["AddNewProductService"]])
+    ], AddNewProductComponent);
+    return AddNewProductComponent;
 }());
 
 
@@ -215,7 +322,7 @@ module.exports = ".prediction-table{\n    border: 2px solid black;\n    padding:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <table class=\"prediction-table\" *ngIf=\"!pdfDownload\">\n    <tr class=\"prediction-tr\">\n      <td class=\"prediction-tr\">Product ID</td>\n      <td class=\"prediction-tr\">Product Name</td>\n      <td class=\"prediction-tr\">Quantity</td>\n      <td class=\"prediction-tr\">Created-till-now</td>\n      <td class=\"prediction-tr\">Predicted</td>\n      <td class=\"prediction-tr\">Status</td>\n      <td class=\"prediction-tr\">Ordered Time</td>\n      <td class=\"prediction-tr\">Current Status</td>\n    </tr>\n    <tr class=\"prediction-tr\" *ngFor=\"let order of finalDataArray\">\n      <td class=\"prediction-tr\">{{order.productId}}</td>\n      <td class=\"prediction-tr\">{{order.productName}}</td>\n      <td class=\"prediction-tr\">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')\n        }}\n      </td>\n      <td class=\"prediction-tr\">{{order.createdTillNow}}</td>\n      <td class=\"prediction-tr\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.quantity > 0 && order.predictedQuantity && !order.status\" class=\"btn btn-primary\"\n        (click)=\"updateStatus(order)\">Done</td>\n      <td class=\"prediction-tr\" *ngIf=\"!(order.quantity > 0 && order.predictedQuantity && !order.status)\" class=\"btn btn-primary\"\n        disabled>Done</td>\n      <td class=\"prediction-tr\">{{ order.orderTimestamp }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.status\" style=\"background-color:green;\">{{ 'Completed' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"!order.status && (order.quantity < 0) && !order.createdTillNow\" style=\"background-color:blue;\">{{ 'No Orders Today' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(!order.status && (order.quantity > 0))\" style=\"background-color:yellow;\">{{ 'In Progress' }}</td>\n    </tr>\n  </table>\n</div>\n<div id=\"content\" #content>\n  <div class=\"alert alert-info\">\n    <strong>Download as PDF</strong>\n  </div>\n  <div>\n    <input type=\"button\" value=\"Download PDF\" (click)=\"captureScreen()\" />\n  </div>\n</div>\n\n<!-- for PDF Generation -->\n<div style=\"opacity: 0;\">\n  <div class=\"pdf-download\" id=\"contentToConvert\">\n    <table class=\"downloadable-table\">\n      <tr class=\"downloadable-tr\">\n        <td class=\"downloadable-td\">Dish Name</td>\n        <td class=\"downloadable-td\">Produced</td>\n        <td class=\"downloadable-td\">Predicted</td>\n        <!-- <td class=\"downloadable-td\">Order Time</td>\n        <td class=\"downloadable-td\">Status</td> -->\n      </tr>\n      <tr class=\"downloadable-table\" *ngFor=\"let order of arrayUnique\">\n        <td class=\"downloadable-td\">{{order.productName}}</td>\n        <td class=\"downloadable-td\">{{order.createdTillNow}}</td>\n        <td class=\"downloadable-td\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n        <!-- <td class=\"prediction-tr\">{{order.orderTimestamp}}</td>\n        <td></td> -->\n      </tr>\n    </table>\n  </div>\n</div>"
+module.exports = "<div>\n  <table class=\"prediction-table\" *ngIf=\"!pdfDownload\">\n    <tr class=\"prediction-tr\">\n      <td class=\"prediction-tr\">Product ID</td>\n      <td class=\"prediction-tr\">Product Name</td>\n      <td class=\"prediction-tr\">Quantity</td>\n      <td class=\"prediction-tr\">Created-till-now</td>\n      <td class=\"prediction-tr\">Predicted</td>\n      <td class=\"prediction-tr\">Status</td>\n      <td class=\"prediction-tr\">Ordered Time</td>\n      <td class=\"prediction-tr\">Current Status</td>\n    </tr>\n    <tr class=\"prediction-tr\" *ngFor=\"let order of finalDataArray\">\n      <td class=\"prediction-tr\">{{order.productId}}</td>\n      <td class=\"prediction-tr\">{{order.productName}}</td>\n      <td class=\"prediction-tr\">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')\n        }}\n      </td>\n      <td class=\"prediction-tr\">{{order.createdTillNow}}</td>\n      <td class=\"prediction-tr\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.quantity > 0 && order.predictedQuantity && !order.status\" class=\"btn btn-primary\"\n        (click)=\"updateStatus(order)\">Done</td>\n      <td class=\"prediction-tr\" *ngIf=\"!(order.quantity > 0 && order.predictedQuantity && !order.status)\" class=\"btn btn-primary\"\n        disabled>Done</td>\n      <td class=\"prediction-tr\">{{ order.orderTimestamp }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.status\" style=\"background-color:green;\">{{ 'Completed' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"!order.status && (order.quantity < 0) && !order.createdTillNow\" style=\"background-color:blue;\">{{ 'No Orders Today' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(!order.status && (order.quantity > 0))\" style=\"background-color:yellow;\">{{ 'In Progress' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(order.quantity === 0 && order.predictedQuantity===-1)\" style=\"background-color:yellow;\">{{ 'No Status' }}</td>\n    </tr>\n  </table>\n</div>\n<div id=\"content\" #content>\n  <div class=\"alert alert-info\">\n    <strong>Download as PDF</strong>\n  </div>\n  <div>\n    <input type=\"button\" value=\"Download PDF\" (click)=\"captureScreen()\" />\n  </div>\n</div>\n\n<div>\n  <button class=\"btn btn-primary\" (click)=\"navigateToSendPrediction()\">Go to send Prediction page</button> &nbsp; &nbsp; \n  <button class=\"btn btn-primary\" (click)=\"navigateToPlaceOrder()\">Create new Order page</button>\n</div>\n\n<!-- for PDF Generation -->\n<div style=\"opacity: 0;\">\n  <div class=\"pdf-download\" id=\"contentToConvert\">\n    <table class=\"downloadable-table\">\n      <tr class=\"downloadable-tr\">\n        <td class=\"downloadable-td\">Dish Name</td>\n        <td class=\"downloadable-td\">Produced</td>\n        <td class=\"downloadable-td\">Predicted</td>\n        <!-- <td class=\"downloadable-td\">Order Time</td>\n        <td class=\"downloadable-td\">Status</td> -->\n      </tr>\n      <tr class=\"downloadable-table\" *ngFor=\"let order of arrayUnique\">\n        <td class=\"downloadable-td\">{{order.productName}}</td>\n        <td class=\"downloadable-td\">{{order.createdTillNow}}</td>\n        <td class=\"downloadable-td\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n        <!-- <td class=\"prediction-tr\">{{order.orderTimestamp}}</td>\n        <td></td> -->\n      </tr>\n    </table>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -235,6 +342,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/npm/index.js");
 /* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -248,9 +356,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AllDetailsComponent = /** @class */ (function () {
-    function AllDetailsComponent(allDetailsService) {
+    function AllDetailsComponent(allDetailsService, router) {
         this.allDetailsService = allDetailsService;
+        this.router = router;
         this.allDataArray = [];
         this.finalDataArray = [];
         this.arrayUnique = [];
@@ -367,6 +477,12 @@ var AllDetailsComponent = /** @class */ (function () {
         pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
         pdf.save('production-report.pdf'); // Generated PDF   
     };
+    AllDetailsComponent.prototype.navigateToSendPrediction = function () {
+        this.router.navigate(['/predictions']);
+    };
+    AllDetailsComponent.prototype.navigateToPlaceOrder = function () {
+        this.router.navigate(['/createorder']);
+    };
     AllDetailsComponent.prototype.ngOnChanges = function () {
     };
     AllDetailsComponent = __decorate([
@@ -375,7 +491,8 @@ var AllDetailsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./all-details.component.html */ "./src/app/components/all-details/all-details.component.html"),
             styles: [__webpack_require__(/*! ./all-details.component.css */ "./src/app/components/all-details/all-details.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_all_details_service__WEBPACK_IMPORTED_MODULE_1__["AllDetailsService"]])
+        __metadata("design:paramtypes", [_services_all_details_service__WEBPACK_IMPORTED_MODULE_1__["AllDetailsService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], AllDetailsComponent);
     return AllDetailsComponent;
 }());
@@ -402,7 +519,7 @@ module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <form>\n    <div class=\"form-group\">\n      <label for=\"username\">Username : </label>\n      <input type=\"text\" class=\"form-control\" id=\"username\" name=\"username\" [(ngModel)]=\"username\" required>\n    </div>\n      <div class=\"form-group\">\n      <label for=\"productName\">Select Product : </label> &nbsp;\n      <select (change)=\"filterProducts($event.target.value)\">\n        <option value=\"0\">-- All --</option>\n        <option *ngFor=\"let product of productName\" value={{product}}>\n          {{product}}\n        </option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"orderedQuantity\">Quantity : </label>\n      <input type=\"text\" class=\"form-control\" id=\"orderedQuantity\" name=\"orderedQuantity\" [(ngModel)]=\"orderedQuantity\" required>\n    </div>\n    <div class=\"form-group\">\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"createOrder()\">Order</button>\n      </div>\n  </form>\n  </div>\n  <!-- <br>\n  <div>\n    <label for=\"All Orders\">Your All Orders</label>\n      \n      <div>\n      <table class=\"prediction-table\">\n          <tr>\n            <td>Product ID</td>\n            <td>Product Name</td>\n            <td>Quantity</td>\n            <td>Status</td>\n          </tr>\n          <tr *ngFor=\"let order of allOrdersForUser\">\n            <td>{{order.productid}}</td>\n            <td>{{order.productname}}</td>\n            <td>{{order.quantity}}</td>\n            <td *ngIf=\"order.status===false\"><button  class=\"btn btn-primary\" (click)=\"updateStatus(order)\">Cancel Order</button></td>\n            <td *ngIf=\"order.status===true\"><button  class=\"btn btn-success\" disabled>Completed</button></td> -->\n            <!-- <td>{{order.status}}</td> -->\n          <!-- </tr>\n        </table>\n      </div>\n  </div> -->\n  "
+module.exports = "<div>\n  <form>\n    <div class=\"form-group\">\n      <label for=\"username\">Username : </label>\n      <input type=\"text\" class=\"form-control\" id=\"username\" name=\"username\" [(ngModel)]=\"username\" required>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productName\">Select Product : </label> &nbsp;\n      <select name=\"selectedProductObject\" id=\"selectedProductObject\" [(ngModel)]=\"selectedProductObject\">\n        <!-- <option value=\"0\">All</option> -->\n        <option *ngFor=\"let product of allProducts\" value={{product._id}}>\n          {{product.productname}}\n        </option>\n      </select>\n      <!-- <select (change)=\"filterProducts($event.target.value)\">\n        <option value=\"0\"> All </option>\n        <option *ngFor=\"let product of productName\" value={{product}}>\n          {{product}}\n        </option>\n      </select> -->\n    </div>\n    <div class=\"form-group\">\n      <label for=\"orderedQuantity\">Quantity : </label>\n      <input type=\"text\" class=\"form-control\" id=\"orderedQuantity\" name=\"orderedQuantity\" [(ngModel)]=\"orderedQuantity\" required>\n    </div>\n    <div class=\"form-group\">\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"createOrder()\">Order</button>\n    </div>\n  </form>\n</div>\n<div>\n  <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\n</div>\n<!-- <br>\n  <div>\n    <label for=\"All Orders\">Your All Orders</label>\n      \n      <div>\n      <table class=\"prediction-table\">\n          <tr>\n            <td>Product ID</td>\n            <td>Product Name</td>\n            <td>Quantity</td>\n            <td>Status</td>\n          </tr>\n          <tr *ngFor=\"let order of allOrdersForUser\">\n            <td>{{order.productid}}</td>\n            <td>{{order.productname}}</td>\n            <td>{{order.quantity}}</td>\n            <td *ngIf=\"order.status===false\"><button  class=\"btn btn-primary\" (click)=\"updateStatus(order)\">Cancel Order</button></td>\n            <td *ngIf=\"order.status===true\"><button  class=\"btn btn-success\" disabled>Completed</button></td> -->\n<!-- <td>{{order.status}}</td> -->\n<!-- </tr>\n        </table>\n      </div>\n  </div> -->"
 
 /***/ }),
 
@@ -450,13 +567,16 @@ var CreateOrderComponent = /** @class */ (function () {
         this.allOrdersForUser = [];
         this.allOrderDetails = [];
         this.ordersService.subscribeAllProducts().subscribe(function (data) {
-            _this.allProducts = data.Products;
-            if (_this.allProducts) {
-                _this.allProducts.map(function (data) {
-                    _this.productID.push(data.productid);
-                    _this.productName.push(data.productname);
-                });
+            if (data.length > 0) {
+                _this.allProducts = data;
             }
+            // this.allProducts = data.Products;
+            // if(this.allProducts){
+            //   this.allProducts.map(data => {
+            //     this.productID.push(data.productid);
+            //     this.productName.push(data.productname);
+            //   })
+            // }
         });
     }
     CreateOrderComponent.prototype.ngOnInit = function () {
@@ -465,9 +585,6 @@ var CreateOrderComponent = /** @class */ (function () {
             setInterval(function () { _this.getAllOrders(); }, 1000);
         });
         //this.getAllOrders()
-    };
-    CreateOrderComponent.prototype.ngDoCheck = function () {
-        //this.getAllOrders();
     };
     CreateOrderComponent.prototype.getAllOrders = function () {
         var _this = this;
@@ -498,22 +615,23 @@ var CreateOrderComponent = /** @class */ (function () {
         };
     };
     CreateOrderComponent.prototype.createOrder = function () {
-        var _this = this;
         this.preparePayload();
         this.allOrdersForUser = [];
-        this.ordersService.createOrders(this.orderPayload, this.selectedProduct[0].objectid).subscribe(function (orderDetails) {
-            if (orderDetails) {
-                _this.router.navigate(['/ordersuccess']);
-            }
-            else {
-                _this.router.navigate(['/orderfailure']);
-            }
-            //this.allOrdersForUser = orderDetails;
-            _this.allOrdersForUser = [];
-            Object.keys(orderDetails).map(function (key) {
-                _this.allOrdersForUser.push(orderDetails[key]);
-            });
-        });
+        this.preparePayload();
+        console.log("this.selectedProductObject : ", this.selectedProductObject);
+        this.ordersService.createOrders(this.orderPayload, this.selectedProductObject);
+        // this.ordersService.createOrders(this.orderPayload, this.selectedProduct[0].objectid).subscribe(orderDetails => {
+        //   if(orderDetails) {
+        //     this.router.navigate(['/ordersuccess'])
+        //   } else {
+        //     this.router.navigate(['/orderfailure'])
+        //   }
+        //   //this.allOrdersForUser = orderDetails;
+        //   this.allOrdersForUser = [];
+        //   Object.keys(orderDetails).map(key => {
+        //     this.allOrdersForUser.push(orderDetails[key]);
+        //   });
+        // })
     };
     CreateOrderComponent.prototype.updateStatus = function (order) {
         var _this = this;
@@ -525,6 +643,9 @@ var CreateOrderComponent = /** @class */ (function () {
                 _this.allOrdersForUser.push(updatedOrders[key]);
             });
         });
+    };
+    CreateOrderComponent.prototype.navigateToHomepage = function () {
+        this.router.navigate(['/']);
     };
     CreateOrderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -777,7 +898,7 @@ module.exports = "form { \n    width: 30%;\n    padding: 2px;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\n  <div class=\"form-group\"> \n    <label for=\"productName\">Select Product: </label>\n    <select name=\"selectedProductObject\" id=\"selectedProductObject\" [(ngModel)]=\"selectedProductObject\">\n        <option value=\"0\">--All--</option>\n        <option *ngFor=\"let product of allProducts\" value={{product.prediction[0]._id}} >\n            {{product.productname}}\n        </option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"predictedQuantity\">Predicted Quantity</label>\n    <input type=\"text\" class=\"form-control\" id=\"predictedQuantity\" name=\"predictedQuantity\" [(ngModel)]=\"predictedQuantity\" required>\n  </div>\n  <div class=\"form-group\">\n    <button type=\"submit\" clas=\"btn btn-success\" (click)=\"sendPrediction()\">Send Prediction</button>\n  </div>\n  </form>\n  "
+module.exports = "<form>\n  <div class=\"form-group\"> \n    <label for=\"productName\">Select Product: </label>\n    <select name=\"selectedProductObject\" id=\"selectedProductObject\" [(ngModel)]=\"selectedProductObject\">\n        <option value=\"0\">--All--</option>\n        <option *ngFor=\"let product of allProducts\" value={{product.prediction[0]._id}} >\n            {{product.productname}}\n        </option>\n    </select>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"predictedQuantity\">Predicted Quantity</label>\n    <input type=\"text\" class=\"form-control\" id=\"predictedQuantity\" name=\"predictedQuantity\" [(ngModel)]=\"predictedQuantity\" required>\n  </div>\n  <div class=\"form-group\">\n    <button type=\"submit\" clas=\"btn btn-success\" (click)=\"sendPrediction()\">Send Prediction</button>\n  </div>\n  </form>\n  <div>\n    <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\n  </div>\n  "
 
 /***/ }),
 
@@ -793,6 +914,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PredictionsComponent", function() { return PredictionsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_predictions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/predictions.service */ "./src/app/services/predictions.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -804,10 +926,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var PredictionsComponent = /** @class */ (function () {
-    function PredictionsComponent(predictionsService) {
+    function PredictionsComponent(predictionsService, router) {
         var _this = this;
         this.predictionsService = predictionsService;
+        this.router = router;
         this.productID = [];
         this.productName = [];
         this.productObjectID = [];
@@ -843,13 +967,17 @@ var PredictionsComponent = /** @class */ (function () {
         this.preparePayload();
         this.predictionsService.sendPrediction(this.predictionPayload, this.selectedProductObject);
     };
+    PredictionsComponent.prototype.navigateToHomepage = function () {
+        this.router.navigate(['/']);
+    };
     PredictionsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-predictions',
             template: __webpack_require__(/*! ./predictions.component.html */ "./src/app/components/predictions/predictions.component.html"),
             styles: [__webpack_require__(/*! ./predictions.component.css */ "./src/app/components/predictions/predictions.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_predictions_service__WEBPACK_IMPORTED_MODULE_1__["PredictionsService"]])
+        __metadata("design:paramtypes", [_services_predictions_service__WEBPACK_IMPORTED_MODULE_1__["PredictionsService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], PredictionsComponent);
     return PredictionsComponent;
 }());
@@ -1005,6 +1133,52 @@ var SuccessPageComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], SuccessPageComponent);
     return SuccessPageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/add-new-product.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/services/add-new-product.service.ts ***!
+  \*****************************************************/
+/*! exports provided: AddNewProductService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddNewProductService", function() { return AddNewProductService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_requests_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./http-requests.service */ "./src/app/services/http-requests.service.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../environments/environment */ "./src/environments/environment.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AddNewProductService = /** @class */ (function () {
+    function AddNewProductService(httpRequestsService) {
+        this.httpRequestsService = httpRequestsService;
+        this.apiUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API_BASE.faasos_api;
+    }
+    AddNewProductService.prototype.addNewProduct = function (payload) {
+        return this.httpRequestsService.postAPI(this.apiUrl + 'addnewproduct', payload);
+    };
+    AddNewProductService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_http_requests_service__WEBPACK_IMPORTED_MODULE_1__["HttpRequestsService"]])
+    ], AddNewProductService);
+    return AddNewProductService;
 }());
 
 
@@ -1185,11 +1359,16 @@ var OrdersService = /** @class */ (function () {
     }
     OrdersService.prototype.getAllProductsList = function () {
         var _this = this;
-        this.httpRequestsService.getAPI('./../assets/all-products.json')
+        this.httpRequestsService.getAPI(this.apiUrl + '/alldata')
             .subscribe(function (data) {
             _this._products = data;
             _this._allProducts.next(data);
         });
+        // this.httpRequestsService.getAPI('./../assets/all-products.json')
+        //   .subscribe(data => {
+        //     this._products = data;
+        //     this._allProducts.next(data);
+        //   })
     };
     OrdersService.prototype.subscribeAllProducts = function () {
         this.getAllProductsList();
@@ -1355,7 +1534,7 @@ var environment = {
         faasos_api: 'https://glacial-castle-43349.herokuapp.com/api/faasos/'
     }
 };
-/*
+/*faasos_api : 'http://localhost:8080/api/faasos/'
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
  * import the following file, but please comment it out in production mode

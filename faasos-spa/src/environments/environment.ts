@@ -9,7 +9,7 @@ export const environment = {
   }
 };
 
-/*
+/*faasos_api : 'http://localhost:8080/api/faasos/'
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
  * import the following file, but please comment it out in production mode

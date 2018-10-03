@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PredictionsService } from './../../services/predictions.service';
+import { Router } from '@angular/router'
 
 interface PredictionsPayload  {
   prediction : {
@@ -12,8 +13,6 @@ interface PredictionsPayload  {
   templateUrl: './predictions.component.html',
   styleUrls: ['./predictions.component.css']
 })
-
-
 
 export class PredictionsComponent implements OnInit {
 
@@ -34,7 +33,8 @@ export class PredictionsComponent implements OnInit {
     }
   }
 
-  constructor(private predictionsService : PredictionsService) { 
+  constructor(private predictionsService : PredictionsService,
+              private router : Router) { 
     this.predictionsService.subscribeProducts().subscribe(data => {
       if(data.length > 0){
         this.allProducts = data;
@@ -64,6 +64,10 @@ export class PredictionsComponent implements OnInit {
     //console.log("product",this.selectedProductObject)
     this.preparePayload();
     this.predictionsService.sendPrediction(this.predictionPayload, this.selectedProductObject);
+  }
+
+  navigateToHomepage() {
+    this.router.navigate(['/'])
   }
 
 }

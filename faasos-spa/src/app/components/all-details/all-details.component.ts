@@ -4,6 +4,7 @@ import { Observable } from './../../../../node_modules/rxjs';
 import { BehaviorSubject } from './../../../../node_modules/rxjs';
 import * as jspdf from 'jspdf';
 import * as html2canvas from 'html2canvas';
+import { Router } from '@angular/router';
 
 interface ObjectForTable {
   productId: number,
@@ -53,7 +54,8 @@ export class AllDetailsComponent implements OnInit, OnChanges {
     width: 550
   };
 
-  constructor(private allDetailsService: AllDetailsService) { }
+  constructor(private allDetailsService: AllDetailsService,
+              private router : Router) { }
 
   ngOnInit() {
     this.allDetailsService.getAllData().subscribe(data => {
@@ -153,6 +155,13 @@ export class AllDetailsComponent implements OnInit, OnChanges {
         pdf.save('production-report.pdf'); // Generated PDF   
   }
 
+  navigateToSendPrediction() {
+    this.router.navigate(['/predictions'])
+  }
+
+  navigateToPlaceOrder() {
+    this.router.navigate(['/createorder'])
+  }
 
   ngOnChanges() {
   }

@@ -4,14 +4,20 @@
       <label for="username">Username : </label>
       <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
     </div>
-      <div class="form-group">
+    <div class="form-group">
       <label for="productName">Select Product : </label> &nbsp;
-      <select (change)="filterProducts($event.target.value)">
-        <option value="0">-- All --</option>
+      <select name="selectedProductObject" id="selectedProductObject" [(ngModel)]="selectedProductObject">
+        <!-- <option value="0">All</option> -->
+        <option *ngFor="let product of allProducts" value={{product._id}}>
+          {{product.productname}}
+        </option>
+      </select>
+      <!-- <select (change)="filterProducts($event.target.value)">
+        <option value="0"> All </option>
         <option *ngFor="let product of productName" value={{product}}>
           {{product}}
         </option>
-      </select>
+      </select> -->
     </div>
     <div class="form-group">
       <label for="orderedQuantity">Quantity : </label>
@@ -19,10 +25,13 @@
     </div>
     <div class="form-group">
       <button type="submit" clas="btn btn-success" (click)="createOrder()">Order</button>
-      </div>
+    </div>
   </form>
-  </div>
-  <!-- <br>
+</div>
+<div>
+  <button class="btn btn-primary" (click)="navigateToHomepage()">Home Page</button>
+</div>
+<!-- <br>
   <div>
     <label for="All Orders">Your All Orders</label>
       
@@ -40,9 +49,8 @@
             <td>{{order.quantity}}</td>
             <td *ngIf="order.status===false"><button  class="btn btn-primary" (click)="updateStatus(order)">Cancel Order</button></td>
             <td *ngIf="order.status===true"><button  class="btn btn-success" disabled>Completed</button></td> -->
-            <!-- <td>{{order.status}}</td> -->
-          <!-- </tr>
+<!-- <td>{{order.status}}</td> -->
+<!-- </tr>
         </table>
       </div>
   </div> -->
-  

@@ -26,6 +26,7 @@
       <td class="prediction-tr" *ngIf="order.status" style="background-color:green;">{{ 'Completed' }}</td>
       <td class="prediction-tr" *ngIf="!order.status && (order.quantity < 0) && !order.createdTillNow" style="background-color:blue;">{{ 'No Orders Today' }}</td>
       <td class="prediction-tr" *ngIf="(!order.status && (order.quantity > 0))" style="background-color:yellow;">{{ 'In Progress' }}</td>
+      <td class="prediction-tr" *ngIf="(order.quantity === 0 && order.predictedQuantity===-1)" style="background-color:yellow;">{{ 'No Status' }}</td>
     </tr>
   </table>
 </div>
@@ -36,6 +37,11 @@
   <div>
     <input type="button" value="Download PDF" (click)="captureScreen()" />
   </div>
+</div>
+
+<div>
+  <button class="btn btn-primary" (click)="navigateToSendPrediction()">Go to send Prediction page</button> &nbsp; &nbsp; 
+  <button class="btn btn-primary" (click)="navigateToPlaceOrder()">Create new Order page</button>
 </div>
 
 <!-- for PDF Generation -->

@@ -15,6 +15,7 @@ import { SuccessPageComponent } from './components/success-page/success-page.com
 import { FailurePageComponent } from './components/failure-page/failure-page.component';
 import { OrdersDisplayComponent } from './components/orders-display/orders-display.component';
 import { ShowAllPredictionDataComponent } from './components/show-all-prediction-data/show-all-prediction-data.component';
+import { AddNewProductComponent } from './components/add-new-product/add-new-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ShowAllPredictionDataComponent } from './components/show-all-prediction
     SuccessPageComponent,
     FailurePageComponent,
     OrdersDisplayComponent,
-    ShowAllPredictionDataComponent
+    ShowAllPredictionDataComponent,
+    AddNewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,10 @@ import { ShowAllPredictionDataComponent } from './components/show-all-prediction
       {
         path : 'orderfailure',
         component : FailurePageComponent
+      },
+      {
+        path : 'addnewproduct',
+        component : AddNewProductComponent
       },
       {
         path : '**',

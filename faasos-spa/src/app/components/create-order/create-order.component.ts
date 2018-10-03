@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OrdersService } from './../../services/orders.service';
 import { Observable, interval } from './../../../../node_modules/rxjs';
 import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ interface OrdersPayload  {
   templateUrl: './create-order.component.html',
   styleUrls: ['./create-order.component.css']
 })
-export class CreateOrderComponent implements OnInit, DoCheck {
+export class CreateOrderComponent implements OnInit {
 
 
   public allProducts: any;
@@ -29,6 +29,7 @@ export class CreateOrderComponent implements OnInit, DoCheck {
   public selectedProduct: any;
   public orderedQuantity: number;
   public username: string;
+  public selectedProductObject : any;
 
   public orderPayload : OrdersPayload = {
     order : {
@@ -46,13 +47,16 @@ export class CreateOrderComponent implements OnInit, DoCheck {
 
   constructor(private ordersService : OrdersService, private router : Router) { 
     this.ordersService.subscribeAllProducts().subscribe(data => {
-      this.allProducts = data.Products;
-      if(this.allProducts){
-        this.allProducts.map(data => {
-          this.productID.push(data.productid);
-          this.productName.push(data.productname);
-        })
+      if(data.length > 0){
+        this.allProducts = data;
       }
+      // this.allProducts = data.Products;
+      // if(this.allProducts){
+      //   this.allProducts.map(data => {
+      //     this.productID.push(data.productid);
+      //     this.productName.push(data.productname);
+      //   })
+      // }
     });
   }
 
@@ -61,10 +65,6 @@ export class CreateOrderComponent implements OnInit, DoCheck {
       setInterval(() => { this.getAllOrders() }, 1000)
     })
     //this.getAllOrders()
-  }
-
-  ngDoCheck() {
-    //this.getAllOrders();
   }
 
   getAllOrders() {
@@ -100,18 +100,21 @@ export class CreateOrderComponent implements OnInit, DoCheck {
   createOrder() {
     this.preparePayload();
     this.allOrdersForUser = []
-    this.ordersService.createOrders(this.orderPayload, this.selectedProduct[0].objectid).subscribe(orderDetails => {
-      if(orderDetails) {
-        this.router.navigate(['/ordersuccess'])
-      } else {
-        this.router.navigate(['/orderfailure'])
-      }
-      //this.allOrdersForUser = orderDetails;
-      this.allOrdersForUser = [];
-      Object.keys(orderDetails).map(key => {
-        this.allOrdersForUser.push(orderDetails[key]);
-      });
-    })
+    this.preparePayload();
+    console.log("this.selectedProductObject : ",this.selectedProductObject)
+    this.ordersService.createOrders(this.orderPayload, this.selectedProductObject);
+    // this.ordersService.createOrders(this.orderPayload, this.selectedProduct[0].objectid).subscribe(orderDetails => {
+    //   if(orderDetails) {
+    //     this.router.navigate(['/ordersuccess'])
+    //   } else {
+    //     this.router.navigate(['/orderfailure'])
+    //   }
+    //   //this.allOrdersForUser = orderDetails;
+    //   this.allOrdersForUser = [];
+    //   Object.keys(orderDetails).map(key => {
+    //     this.allOrdersForUser.push(orderDetails[key]);
+    //   });
+    // })
   }
 
   updateStatus(order) {
@@ -123,6 +126,10 @@ export class CreateOrderComponent implements OnInit, DoCheck {
         this.allOrdersForUser.push(updatedOrders[key]);
       });
     });
+  }
+
+  navigateToHomepage() {
+    this.router.navigate(['/'])
   }
 
 }
