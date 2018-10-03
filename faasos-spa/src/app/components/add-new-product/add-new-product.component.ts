@@ -53,7 +53,7 @@ export class AddNewProductComponent implements OnInit {
       productname: this.productName,
       prediction: [
         {
-          predictedquantity: 0
+          predictedquantity: -1
         }
       ],
       orders: [

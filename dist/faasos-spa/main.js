@@ -275,7 +275,7 @@ var AddNewProductComponent = /** @class */ (function () {
             productname: this.productName,
             prediction: [
                 {
-                    predictedquantity: 0
+                    predictedquantity: -1
                 }
             ],
             orders: [
