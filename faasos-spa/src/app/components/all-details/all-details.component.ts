@@ -163,6 +163,10 @@ export class AllDetailsComponent implements OnInit, OnChanges {
     this.router.navigate(['/createorder'])
   }
 
+  addNewProduct() {
+    this.router.navigate(['/addnewproduct'])
+  }
+
   ngOnChanges() {
   }
 
