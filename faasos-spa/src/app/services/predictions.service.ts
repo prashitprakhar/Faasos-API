@@ -4,7 +4,6 @@ import { BehaviorSubject } from '../../../node_modules/rxjs';
 import { Observable } from '../../../node_modules/rxjs';
 import { environment } from './../../environments/environment'
 import { Router } from '@angular/router';
-import { resolve } from '../../../node_modules/@types/q';
 
 @Injectable({
   providedIn: 'root'

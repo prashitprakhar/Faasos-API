@@ -2,7 +2,7 @@
   <div class="form-group"> 
     <label for="productName">Select Product: </label>
     <select name="selectedProductObject" id="selectedProductObject" [(ngModel)]="selectedProductObject">
-        <option value="0">--All--</option>
+        <option value="0">-- Select --</option>
         <option *ngFor="let product of allProducts" value={{product.prediction[0]._id}} >
             {{product.productname}}
         </option>

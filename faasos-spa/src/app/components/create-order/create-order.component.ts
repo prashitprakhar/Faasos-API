@@ -28,7 +28,7 @@ export class CreateOrderComponent implements OnInit {
   public selectedProductName: string;
   public selectedProduct: any;
   public orderedQuantity: number;
-  public username: string;
+  public username: string = '';
   public selectedProductObject: any;
 
   public orderPayload: OrdersPayload = {
