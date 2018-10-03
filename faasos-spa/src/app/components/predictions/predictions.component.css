@@ -1,4 +1,22 @@
-form { 
-    width: 30%;
+table, tr, th, td {
+    border: 2px solid black;
     padding: 2px;
-}
+    text-align: center;
+ }
+
+ form { 
+     width: 40%;
+     padding: 40px;
+ }
+
+ option {
+     width : 250px;
+ }
+
+ select {
+    width : 230px;
+ }
+
+ label {
+     font-size : 18px;
+ }

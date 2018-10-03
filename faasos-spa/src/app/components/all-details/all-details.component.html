@@ -1,20 +1,21 @@
-<div>
+<div class="row">
+<div class="col-md-8 prediction-table-division">
+  <u><h1>All Details Page - Home Page</h1></u><br>
   <table class="prediction-table" *ngIf="!pdfDownload">
     <tr class="prediction-tr">
-      <td class="prediction-tr">Product ID</td>
-      <td class="prediction-tr">Product Name</td>
-      <td class="prediction-tr">Quantity</td>
-      <td class="prediction-tr">Created-till-now</td>
-      <td class="prediction-tr">Predicted</td>
-      <td class="prediction-tr">Status</td>
-      <td class="prediction-tr">Ordered Time</td>
-      <td class="prediction-tr">Current Status</td>
+      <th class="prediction-tr">Product ID</th>
+      <th class="prediction-tr">Product Name</th>
+      <th class="prediction-tr">Quantity</th>
+      <th class="prediction-tr">Created-till-now</th>
+      <th class="prediction-tr">Predicted</th>
+      <th class="prediction-tr">Status</th>
+      <th class="prediction-tr">Ordered Time</th>
+      <th class="prediction-tr">Current Status</th>
     </tr>
     <tr class="prediction-tr" *ngFor="let order of finalDataArray">
       <td class="prediction-tr">{{order.productId}}</td>
       <td class="prediction-tr">{{order.productName}}</td>
-      <td class="prediction-tr">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')
-        }}
+      <td class="prediction-tr">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')}}
       </td>
       <td class="prediction-tr">{{order.createdTillNow}}</td>
       <td class="prediction-tr">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>
@@ -30,29 +31,29 @@
     </tr>
   </table>
 </div>
-<div id="content" #content>
-  <div class="alert alert-info">
-    <strong>Download as PDF</strong>
+<div class="col-md-4">
+  <div class="buttons">
+    <input type="button" value="Download PDF" (click)="captureScreen()" class="button-pdf"/>
   </div>
-  <div>
-    <input type="button" value="Download PDF" (click)="captureScreen()" />
-  </div>
-</div>
 
-<div>
-  <button class="btn btn-primary" (click)="navigateToSendPrediction()">Go to send Prediction page</button> &nbsp; &nbsp; 
-  <button class="btn btn-primary" (click)="navigateToPlaceOrder()">Create new Order page</button> &nbsp; &nbsp;
-  <button class="btn btn-primary" (click)="addNewProduct()">Add new Product page</button>
+
+<div class="buttons">
+  <button class="btn btn-primary" (click)="navigateToSendPrediction()">Go to send Prediction page</button> 
 </div>
+<div class="buttons"><button class="btn btn-primary" (click)="navigateToPlaceOrder()">Create new Order page</button> &nbsp; &nbsp;</div>
+  
+ <div class="buttons"><button class="btn btn-primary" (click)="addNewProduct()">Add new Product page</button></div> 
+
 
 <!-- for PDF Generation -->
 <div style="opacity: 0;">
   <div class="pdf-download" id="contentToConvert">
+    <h1>Production - Prediction Report</h1>
     <table class="downloadable-table">
       <tr class="downloadable-tr">
-        <td class="downloadable-td">Dish Name</td>
-        <td class="downloadable-td">Produced</td>
-        <td class="downloadable-td">Predicted</td>
+        <th class="downloadable-td">Dish Name</th>
+        <th class="downloadable-td">Produced</th>
+        <th class="downloadable-td">Predicted</th>
       </tr>
       <tr class="downloadable-table" *ngFor="let order of arrayUnique">
         <td class="downloadable-td">{{order.productName}}</td>
@@ -61,4 +62,6 @@
       </tr>
     </table>
   </div>
+</div>
+</div>
 </div>

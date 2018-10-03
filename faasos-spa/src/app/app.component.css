@@ -1,0 +1,11 @@
+.page-header {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 5.2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+  }

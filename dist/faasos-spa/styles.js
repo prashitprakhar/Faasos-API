@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');\n/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "\r\n@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');\r\n@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');\r\n/* You can add global styles to this file, and also import other style files */\r\n/* @import '../../node_modules/bootstrap/scss'; */\r\n/* @import url('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'); */\r\n/* <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script> */\r\nhtml {\r\n    font-family: 'Open Sans', sans-serif;\r\n    font-size: 62.5%;\r\n  }\r\nbody,\r\nbutton,\r\ninput,\r\n.btn {\r\n  font-family: 'Open Sans', sans-serif;\r\n  font-size: 1.2rem;\r\n  line-height: 1;\r\n}\r\ninput {\r\n    border: 1px solid #afafaf;\r\n    border-radius: 3px;\r\n    font-size: 1.6rem;\r\n    text-indent: 1rem;\r\n  }\r\nh1 {\r\n    font-size: 2.2rem;\r\n    font-weight: 600;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/prashitprakhar/Desktop/All Projects/Faasos-Assignment/Faasos-API/faasos-spa/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\prashit.prakhar\Desktop\Faasos-API\Faasos-API\faasos-spa\src\styles.css */"./src/styles.css");
 
 
 /***/ })

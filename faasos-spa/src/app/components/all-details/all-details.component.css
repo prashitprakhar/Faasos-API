@@ -1,15 +1,19 @@
+.prediction-table-division {
+    padding : 40px;
+}
+
 .prediction-table{
-    border: 2px solid black;
+    border: 4px solid black;
     padding: 2px;
     text-align: center;
  }
 .prediction-tr {
-    border: 2px solid black;
+    border: 4px solid black;
     padding: 2px;
     text-align: center;
 }
 .prediction-td { 
-    border: 2px solid black;
+    border: 4px solid black;
     padding: 2px;
     text-align: center;
 }
@@ -31,5 +35,33 @@
     padding: 2px;
     text-align: center;
  }
+
+ .buttons {
+     padding : 6px;
+ }
+ 
+ .button-pdf {
+     padding : 6px;
+     color: white;
+     background-color: #4CAF50; /* Green */
+     border: none;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+ }
+
+ .pdf-download {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding : 20px;
+ }
+
+ label {
+    font-size : 18px;
+}
+
 
  

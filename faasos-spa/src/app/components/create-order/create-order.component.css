@@ -5,6 +5,34 @@ table, tr, th, td {
  }
 
  form { 
-     width: 30%;
-     padding: 2px;
+     width: 40%;
+     padding: 40px;
  }
+
+ option {
+     width : 250px;
+ }
+
+ select {
+    width : 230px;
+ }
+
+ label {
+    font-size : 18px;
+}
+/* 
+ .input-section {
+     padding : 40px;
+ }
+
+ input {
+     width : 100px;
+ }
+
+ label  {
+     width : 200px;
+ }
+
+ select {
+    width : 200px;
+ } */

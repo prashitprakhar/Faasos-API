@@ -144,8 +144,8 @@ export class AllDetailsComponent implements OnInit, OnChanges {
   }
 
   renderingPDF(canvas) {
-    var imgWidth = 500;
-        var pageHeight = 700;
+        var imgWidth = 200;
+        var pageHeight = 400;
         var imgHeight = canvas.height * imgWidth / canvas.width;
         var heightLeft = imgHeight;
         const contentDataURL = canvas.toDataURL('image/png')

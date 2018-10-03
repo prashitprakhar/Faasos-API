@@ -1,26 +1,23 @@
-<div>
+<div class="row">
+<div class="col-md-6">
+  <div class="input-section">
   <form>
+      <u><h1>Place new Order</h1></u> <br>
     <div class="form-group">
-      <label for="username">Username : </label>
+      <label for="username">Username : </label><br>
       <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
     </div>
     <div class="form-group">
-      <label for="productName">Select Product : </label> &nbsp;
+      <label for="productName">Select Product : </label><br>
       <select name="selectedProductObject" id="selectedProductObject" [(ngModel)]="selectedProductObject">
         <option value="0">-- Select --</option>
         <option *ngFor="let product of allProducts" value={{product._id}}>
           {{product.productname}}
         </option>
       </select>
-      <!-- <select (change)="filterProducts($event.target.value)">
-        <option value="0"> All </option>
-        <option *ngFor="let product of productName" value={{product}}>
-          {{product}}
-        </option>
-      </select> -->
     </div>
     <div class="form-group">
-      <label for="orderedQuantity">Quantity : </label>
+      <label for="orderedQuantity">Quantity : </label><br>
       <input type="text" class="form-control" id="orderedQuantity" name="orderedQuantity" [(ngModel)]="orderedQuantity" required>
     </div>
     <div class="form-group">
@@ -28,29 +25,8 @@
     </div>
   </form>
 </div>
-<div>
+</div>
+<div class="col-md-6">
   <button class="btn btn-primary" (click)="navigateToHomepage()">Home Page</button>
 </div>
-<!-- <br>
-  <div>
-    <label for="All Orders">Your All Orders</label>
-      
-      <div>
-      <table class="prediction-table">
-          <tr>
-            <td>Product ID</td>
-            <td>Product Name</td>
-            <td>Quantity</td>
-            <td>Status</td>
-          </tr>
-          <tr *ngFor="let order of allOrdersForUser">
-            <td>{{order.productid}}</td>
-            <td>{{order.productname}}</td>
-            <td>{{order.quantity}}</td>
-            <td *ngIf="order.status===false"><button  class="btn btn-primary" (click)="updateStatus(order)">Cancel Order</button></td>
-            <td *ngIf="order.status===true"><button  class="btn btn-success" disabled>Completed</button></td> -->
-<!-- <td>{{order.status}}</td> -->
-<!-- </tr>
-        </table>
-      </div>
-  </div> -->
+</div>

@@ -5,6 +5,19 @@ table, tr, th, td {
  }
 
  form { 
-     width: 30%;
-     padding: 2px;
+     width: 50%;
+     padding: 100px, 20px;
+ }
+
+ .input-section {
+     padding : 40px;
+ }
+
+ input {
+     width : 100px;
+ }
+
+ label  {
+     width : 140px;
+     font-size : 18px;
  }
