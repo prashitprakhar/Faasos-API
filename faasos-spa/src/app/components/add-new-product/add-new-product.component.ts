@@ -63,7 +63,9 @@ export class AddNewProductComponent implements OnInit {
       ]
     }
 
-    this.addNewProductService.addNewProduct(this.newProductTemplate)
+    this.addNewProductService.addNewProduct(this.newProductTemplate).subscribe(data => {
+      console.log("Successfully create new product")
+    })
     // .subscribe(data => {
     //   console.log("Data of new Product : ",data)
     // })
