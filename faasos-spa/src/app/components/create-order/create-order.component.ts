@@ -93,7 +93,7 @@ export class CreateOrderComponent implements OnInit {
     //this.ordersService.createOrders(this.orderPayload, this.selectedProductObject);
     this.ordersService.createOrdersNew(this.orderPayload, this.selectedProductObject)
       .then((data) => {
-        let confirmationMessage = confirm("You have successfully added new item to the Menu... Click OK to navigate to Home page. Cancel to add more products.");
+        let confirmationMessage = confirm("You have successfully placed order... Click OK to navigate to Home page. Cancel to add more products.");
         if (confirmationMessage) {
           this.router.navigate(['/'])
         }
