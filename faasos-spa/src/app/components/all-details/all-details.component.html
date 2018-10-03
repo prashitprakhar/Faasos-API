@@ -24,8 +24,8 @@
         disabled>Done</td>
       <td class="prediction-tr">{{ order.orderTimestamp }}</td>
       <td class="prediction-tr" *ngIf="order.status" style="background-color:green;">{{ 'Completed' }}</td>
-      <td class="prediction-tr" *ngIf="!order.status && (order.quantity < 0) && !order.createdTillNow" style="background-color:blue;">{{ 'No Orders Today' }}</td>
-      <td class="prediction-tr" *ngIf="(!order.status && (order.quantity > 0))" style="background-color:yellow;">{{ 'In Progress' }}</td>
+      <td class="prediction-tr" *ngIf="!order.status && (order.quantity === -1) && !order.createdTillNow" style="background-color:blue;">{{ 'No Orders Today' }}</td>
+      <td class="prediction-tr" *ngIf="(!order.status && (order.quantity > -1))" style="background-color:yellow;">{{ 'In Progress' }}</td>
       <td class="prediction-tr" *ngIf="(order.quantity === 0 && order.predictedQuantity===-1)" style="background-color:yellow;">{{ 'No Status' }}</td>
     </tr>
   </table>
@@ -53,15 +53,11 @@
         <td class="downloadable-td">Dish Name</td>
         <td class="downloadable-td">Produced</td>
         <td class="downloadable-td">Predicted</td>
-        <!-- <td class="downloadable-td">Order Time</td>
-        <td class="downloadable-td">Status</td> -->
       </tr>
       <tr class="downloadable-table" *ngFor="let order of arrayUnique">
         <td class="downloadable-td">{{order.productName}}</td>
         <td class="downloadable-td">{{order.createdTillNow}}</td>
         <td class="downloadable-td">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>
-        <!-- <td class="prediction-tr">{{order.orderTimestamp}}</td>
-        <td></td> -->
       </tr>
     </table>
   </div>

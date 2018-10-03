@@ -21,6 +21,8 @@ export class OrdersService {
   private _allProducts = new BehaviorSubject<any>({ ...this._products });
   private _allPlacedOrders = new BehaviorSubject<any>({ ...this._placedOrders });
 
+  public createNewOrdersArray = [];
+
   constructor(private httpRequestsService: HttpRequestsService,
     private router: Router) { }
 
@@ -30,11 +32,6 @@ export class OrdersService {
         this._products = data;
         this._allProducts.next(data);
       })
-    // this.httpRequestsService.getAPI('./../assets/all-products.json')
-    //   .subscribe(data => {
-    //     this._products = data;
-    //     this._allProducts.next(data);
-    //   })
   }
 
   subscribeAllProducts(): Observable<any> {
@@ -47,6 +44,19 @@ export class OrdersService {
       this._allPlacedOrders.next(data);
     });
     return this._allPlacedOrders.asObservable();
+  }
+
+  createOrdersNew(payload, product_id) : Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpRequestsService.patchAPI(this.apiUrl + 'placeorder/' + product_id, payload)
+      .finally(() => {
+        return resolve(this.createNewOrdersArray)
+      })
+      .subscribe(
+          data => this.createNewOrdersArray = data,
+          err => {if(err) { return reject(err)}}
+      )
+      })
   }
 
   getAllOrders() {

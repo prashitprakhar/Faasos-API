@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddNewProductService } from './../../services/add-new-product.service';
+import { Router } from '@angular/router';
+import '../../../../node_modules/rxjs/add/operator/finally';
 
 
 interface NewProduct {
@@ -26,23 +28,28 @@ export class AddNewProductComponent implements OnInit {
 
   public productName: string;
   public productId: number;
+  public successMessage: string;
+  public failureMessage: string;
+  private isFinally: boolean = false;
+  public subscribedData: any = [];
 
   public newProductTemplate: NewProduct = {
     productid: 0,
     productname: '',
     prediction: [
       {
-        predictedquantity: 0
+        predictedquantity: -1
       }
     ],
     orders: [
       {
-        orderedamount: 0
+        orderedamount: -1
       }
     ]
   }
 
-  constructor(private addNewProductService : AddNewProductService) { }
+  constructor(private addNewProductService: AddNewProductService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -58,20 +65,25 @@ export class AddNewProductComponent implements OnInit {
       ],
       orders: [
         {
-          orderedamount: 0
+          orderedamount: -1
         }
       ]
     }
 
-    this.addNewProductService.addNewProduct(this.newProductTemplate).subscribe(data => {
-      console.log("Successfully create new product")
+    this.addNewProductService.addNewProductPromise(this.newProductTemplate).then(data => {
+      let confirmationMessage = confirm("You have successfully added new item to the Menu... Click OK to navigate to Home page. Cancel to add more products.");
+      if (confirmationMessage) {
+        this.router.navigate(['/'])
+      }
+    }).catch(err => {
+      alert("OOPS... Something went wrong... Please try again..");
     })
-    // .subscribe(data => {
-    //   console.log("Data of new Product : ",data)
-    // })
-
   }
 
-  
+  navigateToHomepage() {
+    this.router.navigate(['/'])
+  }
+
+
 
 }

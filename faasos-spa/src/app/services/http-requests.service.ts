@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription, Observable } from '../../../node_modules/rxjs';
+import { map } from '../../../node_modules/rxjs/operators/map';
+import 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpRequestsService {
 
+  
   constructor(private httpClient : HttpClient) { }
 
   getAPI(url, params?): Observable<any>{
@@ -14,7 +17,16 @@ export class HttpRequestsService {
   }
 
   postAPI(url, payload) : Observable<any> {
-    return this.httpClient.post(url, payload);
+     return this.httpClient.post(url, payload);
+    // this.httpClient.post(url, payload)
+    //   .map(res => res)
+    //   .finally(() => console.log("finally called"))
+    //   .subscribe(data => {
+
+    //   })
+    //   })
+    // )
+    
   }
 
   patchAPI(url, payload?, queryparams?) : Observable<any> {

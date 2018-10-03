@@ -222,7 +222,7 @@ module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <form>\n      <div class=\"form-group\">\n      <label for=\"productName\">Enter Product Name </label> &nbsp;\n      <input type=\"text\" calss=\"form-control\" id=\"productName\" name=\"productName\" [(ngModel)]=\"productName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productId\">Enter Product ID : </label> &nbsp;\n      <input type=\"text\" calss=\"form-control\" id=\"productId\" name=\"productId\" [(ngModel)]=\"productId\">\n    </div>\n    <div class=\"form-group\">\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"addNewProduct()\">Create</button>\n      </div>\n  </form>\n  </div>"
+module.exports = "<div>\n  <form>\n      <div class=\"form-group\">\n      <label for=\"productName\">Enter Product Name </label> &nbsp;\n      <input type=\"text\" calss=\"form-control\" id=\"productName\" name=\"productName\" [(ngModel)]=\"productName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productId\">Enter Product ID : </label> &nbsp;\n      <input type=\"text\" calss=\"form-control\" id=\"productId\" name=\"productId\" [(ngModel)]=\"productId\">\n    </div>\n    <div class=\"form-group\">\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"addNewProduct()\">Create</button>\n      </div>\n  </form>\n  </div>\n  <div>\n    <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\n  </div>\n  "
 
 /***/ }),
 
@@ -238,6 +238,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddNewProductComponent", function() { return AddNewProductComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_add_new_product_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/add-new-product.service */ "./src/app/services/add-new-product.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _node_modules_rxjs_add_operator_finally__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/rxjs/add/operator/finally */ "./node_modules/rxjs/add/operator/finally.js");
+/* harmony import */ var _node_modules_rxjs_add_operator_finally__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_rxjs_add_operator_finally__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -249,20 +252,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var AddNewProductComponent = /** @class */ (function () {
-    function AddNewProductComponent(addNewProductService) {
+    function AddNewProductComponent(addNewProductService, router) {
         this.addNewProductService = addNewProductService;
+        this.router = router;
+        this.isFinally = false;
+        this.subscribedData = [];
         this.newProductTemplate = {
             productid: 0,
             productname: '',
             prediction: [
                 {
-                    predictedquantity: 0
+                    predictedquantity: -1
                 }
             ],
             orders: [
                 {
-                    orderedamount: 0
+                    orderedamount: -1
                 }
             ]
         };
@@ -270,6 +278,7 @@ var AddNewProductComponent = /** @class */ (function () {
     AddNewProductComponent.prototype.ngOnInit = function () {
     };
     AddNewProductComponent.prototype.addNewProduct = function () {
+        var _this = this;
         this.newProductTemplate = {
             productid: this.productId,
             productname: this.productName,
@@ -280,16 +289,21 @@ var AddNewProductComponent = /** @class */ (function () {
             ],
             orders: [
                 {
-                    orderedamount: 0
+                    orderedamount: -1
                 }
             ]
         };
-        this.addNewProductService.addNewProduct(this.newProductTemplate).subscribe(function (data) {
-            console.log("Successfully create new product");
+        this.addNewProductService.addNewProductPromise(this.newProductTemplate).then(function (data) {
+            var confirmationMessage = confirm("You have successfully added new item to the Menu... Click OK to navigate to Home page. Cancel to add more products.");
+            if (confirmationMessage) {
+                _this.router.navigate(['/']);
+            }
+        }).catch(function (err) {
+            alert("OOPS... Something went wrong... Please try again..");
         });
-        // .subscribe(data => {
-        //   console.log("Data of new Product : ",data)
-        // })
+    };
+    AddNewProductComponent.prototype.navigateToHomepage = function () {
+        this.router.navigate(['/']);
     };
     AddNewProductComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -297,7 +311,8 @@ var AddNewProductComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./add-new-product.component.html */ "./src/app/components/add-new-product/add-new-product.component.html"),
             styles: [__webpack_require__(/*! ./add-new-product.component.css */ "./src/app/components/add-new-product/add-new-product.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_add_new_product_service__WEBPACK_IMPORTED_MODULE_1__["AddNewProductService"]])
+        __metadata("design:paramtypes", [_services_add_new_product_service__WEBPACK_IMPORTED_MODULE_1__["AddNewProductService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AddNewProductComponent);
     return AddNewProductComponent;
 }());
@@ -324,7 +339,7 @@ module.exports = ".prediction-table{\n    border: 2px solid black;\n    padding:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <table class=\"prediction-table\" *ngIf=\"!pdfDownload\">\n    <tr class=\"prediction-tr\">\n      <td class=\"prediction-tr\">Product ID</td>\n      <td class=\"prediction-tr\">Product Name</td>\n      <td class=\"prediction-tr\">Quantity</td>\n      <td class=\"prediction-tr\">Created-till-now</td>\n      <td class=\"prediction-tr\">Predicted</td>\n      <td class=\"prediction-tr\">Status</td>\n      <td class=\"prediction-tr\">Ordered Time</td>\n      <td class=\"prediction-tr\">Current Status</td>\n    </tr>\n    <tr class=\"prediction-tr\" *ngFor=\"let order of finalDataArray\">\n      <td class=\"prediction-tr\">{{order.productId}}</td>\n      <td class=\"prediction-tr\">{{order.productName}}</td>\n      <td class=\"prediction-tr\">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')\n        }}\n      </td>\n      <td class=\"prediction-tr\">{{order.createdTillNow}}</td>\n      <td class=\"prediction-tr\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.quantity > 0 && order.predictedQuantity && !order.status\" class=\"btn btn-primary\"\n        (click)=\"updateStatus(order)\">Done</td>\n      <td class=\"prediction-tr\" *ngIf=\"!(order.quantity > 0 && order.predictedQuantity && !order.status)\" class=\"btn btn-primary\"\n        disabled>Done</td>\n      <td class=\"prediction-tr\">{{ order.orderTimestamp }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.status\" style=\"background-color:green;\">{{ 'Completed' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"!order.status && (order.quantity < 0) && !order.createdTillNow\" style=\"background-color:blue;\">{{ 'No Orders Today' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(!order.status && (order.quantity > 0))\" style=\"background-color:yellow;\">{{ 'In Progress' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(order.quantity === 0 && order.predictedQuantity===-1)\" style=\"background-color:yellow;\">{{ 'No Status' }}</td>\n    </tr>\n  </table>\n</div>\n<div id=\"content\" #content>\n  <div class=\"alert alert-info\">\n    <strong>Download as PDF</strong>\n  </div>\n  <div>\n    <input type=\"button\" value=\"Download PDF\" (click)=\"captureScreen()\" />\n  </div>\n</div>\n\n<div>\n  <button class=\"btn btn-primary\" (click)=\"navigateToSendPrediction()\">Go to send Prediction page</button> &nbsp; &nbsp; \n  <button class=\"btn btn-primary\" (click)=\"navigateToPlaceOrder()\">Create new Order page</button> &nbsp; &nbsp;\n  <button class=\"btn btn-primary\" (click)=\"addNewProduct()\">Add new Product page</button>\n</div>\n\n<!-- for PDF Generation -->\n<div style=\"opacity: 0;\">\n  <div class=\"pdf-download\" id=\"contentToConvert\">\n    <table class=\"downloadable-table\">\n      <tr class=\"downloadable-tr\">\n        <td class=\"downloadable-td\">Dish Name</td>\n        <td class=\"downloadable-td\">Produced</td>\n        <td class=\"downloadable-td\">Predicted</td>\n        <!-- <td class=\"downloadable-td\">Order Time</td>\n        <td class=\"downloadable-td\">Status</td> -->\n      </tr>\n      <tr class=\"downloadable-table\" *ngFor=\"let order of arrayUnique\">\n        <td class=\"downloadable-td\">{{order.productName}}</td>\n        <td class=\"downloadable-td\">{{order.createdTillNow}}</td>\n        <td class=\"downloadable-td\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n        <!-- <td class=\"prediction-tr\">{{order.orderTimestamp}}</td>\n        <td></td> -->\n      </tr>\n    </table>\n  </div>\n</div>"
+module.exports = "<div>\n  <table class=\"prediction-table\" *ngIf=\"!pdfDownload\">\n    <tr class=\"prediction-tr\">\n      <td class=\"prediction-tr\">Product ID</td>\n      <td class=\"prediction-tr\">Product Name</td>\n      <td class=\"prediction-tr\">Quantity</td>\n      <td class=\"prediction-tr\">Created-till-now</td>\n      <td class=\"prediction-tr\">Predicted</td>\n      <td class=\"prediction-tr\">Status</td>\n      <td class=\"prediction-tr\">Ordered Time</td>\n      <td class=\"prediction-tr\">Current Status</td>\n    </tr>\n    <tr class=\"prediction-tr\" *ngFor=\"let order of finalDataArray\">\n      <td class=\"prediction-tr\">{{order.productId}}</td>\n      <td class=\"prediction-tr\">{{order.productName}}</td>\n      <td class=\"prediction-tr\">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')\n        }}\n      </td>\n      <td class=\"prediction-tr\">{{order.createdTillNow}}</td>\n      <td class=\"prediction-tr\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.quantity > 0 && order.predictedQuantity && !order.status\" class=\"btn btn-primary\"\n        (click)=\"updateStatus(order)\">Done</td>\n      <td class=\"prediction-tr\" *ngIf=\"!(order.quantity > 0 && order.predictedQuantity && !order.status)\" class=\"btn btn-primary\"\n        disabled>Done</td>\n      <td class=\"prediction-tr\">{{ order.orderTimestamp }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.status\" style=\"background-color:green;\">{{ 'Completed' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"!order.status && (order.quantity === -1) && !order.createdTillNow\" style=\"background-color:blue;\">{{ 'No Orders Today' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(!order.status && (order.quantity > -1))\" style=\"background-color:yellow;\">{{ 'In Progress' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(order.quantity === 0 && order.predictedQuantity===-1)\" style=\"background-color:yellow;\">{{ 'No Status' }}</td>\n    </tr>\n  </table>\n</div>\n<div id=\"content\" #content>\n  <div class=\"alert alert-info\">\n    <strong>Download as PDF</strong>\n  </div>\n  <div>\n    <input type=\"button\" value=\"Download PDF\" (click)=\"captureScreen()\" />\n  </div>\n</div>\n\n<div>\n  <button class=\"btn btn-primary\" (click)=\"navigateToSendPrediction()\">Go to send Prediction page</button> &nbsp; &nbsp; \n  <button class=\"btn btn-primary\" (click)=\"navigateToPlaceOrder()\">Create new Order page</button> &nbsp; &nbsp;\n  <button class=\"btn btn-primary\" (click)=\"addNewProduct()\">Add new Product page</button>\n</div>\n\n<!-- for PDF Generation -->\n<div style=\"opacity: 0;\">\n  <div class=\"pdf-download\" id=\"contentToConvert\">\n    <table class=\"downloadable-table\">\n      <tr class=\"downloadable-tr\">\n        <td class=\"downloadable-td\">Dish Name</td>\n        <td class=\"downloadable-td\">Produced</td>\n        <td class=\"downloadable-td\">Predicted</td>\n      </tr>\n      <tr class=\"downloadable-table\" *ngFor=\"let order of arrayUnique\">\n        <td class=\"downloadable-td\">{{order.productName}}</td>\n        <td class=\"downloadable-td\">{{order.createdTillNow}}</td>\n        <td class=\"downloadable-td\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n      </tr>\n    </table>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -566,7 +581,7 @@ var CreateOrderComponent = /** @class */ (function () {
         this.orderPayload = {
             order: {
                 username: '',
-                orderedamount: 0
+                orderedamount: -1
             }
         };
         this.allOrdersForUser = [];
@@ -575,13 +590,6 @@ var CreateOrderComponent = /** @class */ (function () {
             if (data.length > 0) {
                 _this.allProducts = data;
             }
-            // this.allProducts = data.Products;
-            // if(this.allProducts){
-            //   this.allProducts.map(data => {
-            //     this.productID.push(data.productid);
-            //     this.productName.push(data.productname);
-            //   })
-            // }
         });
     }
     CreateOrderComponent.prototype.ngOnInit = function () {
@@ -589,7 +597,6 @@ var CreateOrderComponent = /** @class */ (function () {
         new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
             setInterval(function () { _this.getAllOrders(); }, 1000);
         });
-        //this.getAllOrders()
     };
     CreateOrderComponent.prototype.getAllOrders = function () {
         var _this = this;
@@ -601,11 +608,8 @@ var CreateOrderComponent = /** @class */ (function () {
             });
         });
     };
-    // createOrder() {
-    // }
     CreateOrderComponent.prototype.filterProducts = function (selectedProductName) {
         this.selectedProductName = selectedProductName;
-        //console.log("filterValue : ",filterValue)
     };
     CreateOrderComponent.prototype.preparePayload = function () {
         var _this = this;
@@ -620,23 +624,22 @@ var CreateOrderComponent = /** @class */ (function () {
         };
     };
     CreateOrderComponent.prototype.createOrder = function () {
+        var _this = this;
         this.preparePayload();
         this.allOrdersForUser = [];
         this.preparePayload();
         console.log("this.selectedProductObject : ", this.selectedProductObject);
-        this.ordersService.createOrders(this.orderPayload, this.selectedProductObject);
-        // this.ordersService.createOrders(this.orderPayload, this.selectedProduct[0].objectid).subscribe(orderDetails => {
-        //   if(orderDetails) {
-        //     this.router.navigate(['/ordersuccess'])
-        //   } else {
-        //     this.router.navigate(['/orderfailure'])
-        //   }
-        //   //this.allOrdersForUser = orderDetails;
-        //   this.allOrdersForUser = [];
-        //   Object.keys(orderDetails).map(key => {
-        //     this.allOrdersForUser.push(orderDetails[key]);
-        //   });
-        // })
+        //this.ordersService.createOrders(this.orderPayload, this.selectedProductObject);
+        this.ordersService.createOrdersNew(this.orderPayload, this.selectedProductObject)
+            .then(function (data) {
+            var confirmationMessage = confirm("You have successfully added new item to the Menu... Click OK to navigate to Home page. Cancel to add more products.");
+            if (confirmationMessage) {
+                _this.router.navigate(['/']);
+            }
+        })
+            .catch(function (err) {
+            alert("OOPS... Something went wrong... Please try again..");
+        });
     };
     CreateOrderComponent.prototype.updateStatus = function (order) {
         var _this = this;
@@ -968,9 +971,18 @@ var PredictionsComponent = /** @class */ (function () {
         };
     };
     PredictionsComponent.prototype.sendPrediction = function () {
-        //console.log("product",this.selectedProductObject)
+        var _this = this;
         this.preparePayload();
-        this.predictionsService.sendPrediction(this.predictionPayload, this.selectedProductObject);
+        this.predictionsService.sendPredictionPromise(this.predictionPayload, this.selectedProductObject)
+            .then(function (data) {
+            var confirmationMessage = confirm("You have successfully added new item to the Menu... Click OK to navigate to Home page. Cancel to add more products.");
+            if (confirmationMessage) {
+                _this.router.navigate(['/']);
+            }
+        })
+            .catch(function (err) {
+            alert("OOPS... Something went wrong... Please try again..");
+        });
     };
     PredictionsComponent.prototype.navigateToHomepage = function () {
         this.router.navigate(['/']);
@@ -1173,9 +1185,19 @@ var AddNewProductService = /** @class */ (function () {
     function AddNewProductService(httpRequestsService) {
         this.httpRequestsService = httpRequestsService;
         this.apiUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API_BASE.faasos_api;
+        this.allData = [];
     }
-    AddNewProductService.prototype.addNewProduct = function (payload) {
-        return this.httpRequestsService.postAPI(this.apiUrl + 'addnewproduct', payload);
+    AddNewProductService.prototype.addNewProductPromise = function (payload) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.httpRequestsService.postAPI(_this.apiUrl + 'addnewproduct', payload)
+                .finally(function () {
+                return resolve(_this.allData);
+            })
+                .subscribe(function (data) { return _this.allData = data; }, function (err) { if (err) {
+                return reject(err);
+            } });
+        });
     };
     AddNewProductService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1251,6 +1273,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpRequestsService", function() { return HttpRequestsService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_Rx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/Rx */ "./node_modules/rxjs-compat/_esm5/Rx.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1262,6 +1285,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var HttpRequestsService = /** @class */ (function () {
     function HttpRequestsService(httpClient) {
         this.httpClient = httpClient;
@@ -1271,6 +1295,13 @@ var HttpRequestsService = /** @class */ (function () {
     };
     HttpRequestsService.prototype.postAPI = function (url, payload) {
         return this.httpClient.post(url, payload);
+        // this.httpClient.post(url, payload)
+        //   .map(res => res)
+        //   .finally(() => console.log("finally called"))
+        //   .subscribe(data => {
+        //   })
+        //   })
+        // )
     };
     HttpRequestsService.prototype.patchAPI = function (url, payload, queryparams) {
         //if(queryparams){
@@ -1361,6 +1392,7 @@ var OrdersService = /** @class */ (function () {
         this._allUpdatedOrderStatus = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](__assign({}, this._updatedOrderStatus));
         this._allProducts = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](__assign({}, this._products));
         this._allPlacedOrders = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](__assign({}, this._placedOrders));
+        this.createNewOrdersArray = [];
     }
     OrdersService.prototype.getAllProductsList = function () {
         var _this = this;
@@ -1369,11 +1401,6 @@ var OrdersService = /** @class */ (function () {
             _this._products = data;
             _this._allProducts.next(data);
         });
-        // this.httpRequestsService.getAPI('./../assets/all-products.json')
-        //   .subscribe(data => {
-        //     this._products = data;
-        //     this._allProducts.next(data);
-        //   })
     };
     OrdersService.prototype.subscribeAllProducts = function () {
         this.getAllProductsList();
@@ -1385,6 +1412,18 @@ var OrdersService = /** @class */ (function () {
             _this._allPlacedOrders.next(data);
         });
         return this._allPlacedOrders.asObservable();
+    };
+    OrdersService.prototype.createOrdersNew = function (payload, product_id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.httpRequestsService.patchAPI(_this.apiUrl + 'placeorder/' + product_id, payload)
+                .finally(function () {
+                return resolve(_this.createNewOrdersArray);
+            })
+                .subscribe(function (data) { return _this.createNewOrdersArray = data; }, function (err) { if (err) {
+                return reject(err);
+            } });
+        });
     };
     OrdersService.prototype.getAllOrders = function () {
         var _this = this;
@@ -1472,6 +1511,7 @@ var PredictionsService = /** @class */ (function () {
         this._allProducts = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](__assign({}, this._products));
         this._allPredictions = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](__assign({}, this._predictions));
         this._allEntries = new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](__assign({}, this._entries));
+        this.predictionDataArray = [];
     }
     PredictionsService.prototype.getAllProducts = function () {
         var _this = this;
@@ -1492,6 +1532,18 @@ var PredictionsService = /** @class */ (function () {
             // if (data) {
             //   this.router.navigate(['/allPredictions']);
             // }
+        });
+    };
+    PredictionsService.prototype.sendPredictionPromise = function (payload, objectid) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.httpRequestsService.patchAPI(_this.apiUrl + 'createprediction/' + objectid, payload)
+                .finally(function () {
+                return resolve(_this.predictionDataArray);
+            })
+                .subscribe(function (data) { return _this.predictionDataArray = data; }, function (err) { if (err) {
+                return reject(err);
+            } });
         });
     };
     PredictionsService.prototype.subscribeAllPredictedData = function () {

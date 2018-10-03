@@ -4,6 +4,7 @@ import { BehaviorSubject } from '../../../node_modules/rxjs';
 import { Observable } from '../../../node_modules/rxjs';
 import { environment } from './../../environments/environment'
 import { Router } from '@angular/router';
+import { resolve } from '../../../node_modules/@types/q';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class PredictionsService {
   private _allProducts = new BehaviorSubject<any>({ ...this._products });
   private _allPredictions = new BehaviorSubject<any>({ ...this._predictions });
   private _allEntries = new BehaviorSubject<any>({ ...this._entries });
+  public predictionDataArray : any = [];
 
   constructor(private httpRequestsService: HttpRequestsService,
     private router: Router) { }
@@ -49,6 +51,19 @@ export class PredictionsService {
       //   this.router.navigate(['/allPredictions']);
       // }
     });
+  }
+
+  sendPredictionPromise(payload, objectid) : Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpRequestsService.patchAPI(this.apiUrl + 'createprediction/'+objectid, payload)
+      .finally(() => {
+        return resolve(this.predictionDataArray);
+      })
+      .subscribe(
+        data => this.predictionDataArray = data,
+        err => {if(err) { return reject(err)}}
+      )
+    })
   }
 
   subscribeAllPredictedData() {

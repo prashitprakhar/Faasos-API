@@ -61,9 +61,17 @@ export class PredictionsComponent implements OnInit {
   }
 
   sendPrediction() {
-    //console.log("product",this.selectedProductObject)
     this.preparePayload();
-    this.predictionsService.sendPrediction(this.predictionPayload, this.selectedProductObject);
+    this.predictionsService.sendPredictionPromise(this.predictionPayload, this.selectedProductObject)
+    .then(data => {
+      let confirmationMessage = confirm("You have successfully added new item to the Menu... Click OK to navigate to Home page. Cancel to add more products.");
+      if (confirmationMessage) {
+        this.router.navigate(['/'])
+      }
+    })
+    .catch(err => {
+      alert("OOPS... Something went wrong... Please try again..");
+    })
   }
 
   navigateToHomepage() {

@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
 //import 'rxjs/Rx'
 
 
-interface OrdersPayload  {
-  order : {
-    username : string,
-    orderedamount : number
+interface OrdersPayload {
+  order: {
+    username: string,
+    orderedamount: number
   }
 }
 
@@ -29,42 +29,34 @@ export class CreateOrderComponent implements OnInit {
   public selectedProduct: any;
   public orderedQuantity: number;
   public username: string;
-  public selectedProductObject : any;
+  public selectedProductObject: any;
 
-  public orderPayload : OrdersPayload = {
-    order : {
-      username : '',
-      orderedamount : 0
+  public orderPayload: OrdersPayload = {
+    order: {
+      username: '',
+      orderedamount: -1
     }
   }
 
-  public allOrdersForUser : any = [];
+  public allOrdersForUser: any = [];
   public allOrderDetails: any = [];
 
-  public sub : Observable<any>
-  public successFlag : boolean;
+  public sub: Observable<any>
+  public successFlag: boolean;
   //private publicIp = require('public-ip');
 
-  constructor(private ordersService : OrdersService, private router : Router) { 
+  constructor(private ordersService: OrdersService, private router: Router) {
     this.ordersService.subscribeAllProducts().subscribe(data => {
-      if(data.length > 0){
+      if (data.length > 0) {
         this.allProducts = data;
       }
-      // this.allProducts = data.Products;
-      // if(this.allProducts){
-      //   this.allProducts.map(data => {
-      //     this.productID.push(data.productid);
-      //     this.productName.push(data.productname);
-      //   })
-      // }
     });
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     new Observable(observer => {
       setInterval(() => { this.getAllOrders() }, 1000)
     })
-    //this.getAllOrders()
   }
 
   getAllOrders() {
@@ -76,23 +68,19 @@ export class CreateOrderComponent implements OnInit {
       });
     })
   }
-  // createOrder() {
-
-  // }
 
   filterProducts(selectedProductName: any) {
     this.selectedProductName = selectedProductName;
-    //console.log("filterValue : ",filterValue)
   }
 
-  preparePayload(){
+  preparePayload() {
     this.selectedProduct = this.allProducts.filter(data => {
       return this.selectedProductName === data.productname
     });
     this.orderPayload = {
-      order : {
-        username : this.username,
-        orderedamount : this.orderedQuantity
+      order: {
+        username: this.username,
+        orderedamount: this.orderedQuantity
       }
     }
   }
@@ -101,20 +89,18 @@ export class CreateOrderComponent implements OnInit {
     this.preparePayload();
     this.allOrdersForUser = []
     this.preparePayload();
-    console.log("this.selectedProductObject : ",this.selectedProductObject)
-    this.ordersService.createOrders(this.orderPayload, this.selectedProductObject);
-    // this.ordersService.createOrders(this.orderPayload, this.selectedProduct[0].objectid).subscribe(orderDetails => {
-    //   if(orderDetails) {
-    //     this.router.navigate(['/ordersuccess'])
-    //   } else {
-    //     this.router.navigate(['/orderfailure'])
-    //   }
-    //   //this.allOrdersForUser = orderDetails;
-    //   this.allOrdersForUser = [];
-    //   Object.keys(orderDetails).map(key => {
-    //     this.allOrdersForUser.push(orderDetails[key]);
-    //   });
-    // })
+    console.log("this.selectedProductObject : ", this.selectedProductObject)
+    //this.ordersService.createOrders(this.orderPayload, this.selectedProductObject);
+    this.ordersService.createOrdersNew(this.orderPayload, this.selectedProductObject)
+      .then((data) => {
+        let confirmationMessage = confirm("You have successfully added new item to the Menu... Click OK to navigate to Home page. Cancel to add more products.");
+        if (confirmationMessage) {
+          this.router.navigate(['/'])
+        }
+      })
+      .catch(err => {
+        alert("OOPS... Something went wrong... Please try again..");
+      })
   }
 
   updateStatus(order) {
