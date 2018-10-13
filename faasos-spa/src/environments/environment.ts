@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_BASE : {
-    faasos_api : 'https://glacial-castle-43349.herokuapp.com/api/faasos/'
+    faasos_api : 'http://localhost:8080/api/faasos/'
   }
 };
 

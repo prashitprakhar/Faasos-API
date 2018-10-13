@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".page-header {\r\n    font-family: 'Open Sans', sans-serif;\r\n    font-size: 62.5%;\r\n}\r\n\r\nh1 {\r\n    font-size: 5.2rem;\r\n    font-weight: 600;\r\n    margin: 0;\r\n    padding: 0;\r\n  }"
+module.exports = ".page-header {\n    font-family: 'Open Sans', sans-serif;\n    font-size: 62.5%;\n}\n\nh1 {\n    font-size: 5.2rem;\n    font-weight: 600;\n    margin: 0;\n    padding: 0;\n  }"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ".page-header {\r\n    font-family: 'Open Sans', sans-serif;\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"alert alert-success\"><h1>Faasos - Order Food Online, Eat Good - Eat Exciting</h1></div>\r\n<router-outlet></router-outlet>"
+module.exports = "<div class=\"alert alert-success\"><h1>Faasos - Order Food Online, Eat Good - Eat Exciting</h1></div>\n<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -211,7 +211,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n form { \r\n     width: 50%;\r\n     padding: 100px, 20px;\r\n }\r\n\r\n .input-section {\r\n     padding : 40px;\r\n }\r\n\r\n input {\r\n     width : 100px;\r\n }\r\n\r\n label  {\r\n     width : 140px;\r\n     font-size : 18px;\r\n }"
+module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n form { \n     width: 50%;\n     padding: 100px, 20px;\n }\n\n .input-section {\n     padding : 40px;\n }\n\n input {\n     width : 100px;\n }\n\n label  {\n     width : 140px;\n     font-size : 18px;\n }"
 
 /***/ }),
 
@@ -222,7 +222,7 @@ module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    pad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n  <div class=\"input-section\">\r\n    <u><h1>Add New Product</h1></u><br>\r\n  <form>\r\n      <div class=\"form-group\">\r\n      <label for=\"productName\">Enter Product Name : </label>\r\n      <input type=\"text\" calss=\"form-control\" id=\"productName\" name=\"productName\" [(ngModel)]=\"productName\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"productId\">Enter Product ID : </label> &nbsp;\r\n      <input type=\"text\" calss=\"form-control\" id=\"productId\" name=\"productId\" [(ngModel)]=\"productId\">\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"addNewProduct()\">Create</button>\r\n      </div>\r\n  </form>\r\n  </div>\r\n</div>\r\n  <div class=\"col-md-6\">\r\n    <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\r\n  </div>\r\n\r\n</div>\r\n  \r\n"
+module.exports = "<div class=\"row\">\n<div class=\"col-md-6\">\n  <div class=\"input-section\">\n    <u><h1>Add New Product</h1></u><br>\n  <form>\n      <div class=\"form-group\">\n      <label for=\"productName\">Enter Product Name : </label>\n      <input type=\"text\" calss=\"form-control\" id=\"productName\" name=\"productName\" [(ngModel)]=\"productName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productId\">Enter Product ID : </label> &nbsp;\n      <input type=\"text\" calss=\"form-control\" id=\"productId\" name=\"productId\" [(ngModel)]=\"productId\">\n    </div>\n    <div class=\"form-group\">\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"addNewProduct()\">Create</button>\n      </div>\n  </form>\n  </div>\n</div>\n  <div class=\"col-md-6\">\n    <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\n  </div>\n\n</div>\n  \n"
 
 /***/ }),
 
@@ -328,7 +328,7 @@ var AddNewProductComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".prediction-table-division {\r\n    padding : 40px;\r\n}\r\n\r\n.prediction-table{\r\n    border: 4px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n.prediction-tr {\r\n    border: 4px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n}\r\n\r\n.prediction-td { \r\n    border: 4px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n}\r\n\r\n.downloadable-table { \r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n.downloadable-td {\r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n.downloadable-tr { \r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n.buttons {\r\n     padding : 6px;\r\n }\r\n\r\n.button-pdf {\r\n     padding : 6px;\r\n     color: white;\r\n     background-color: #4CAF50; /* Green */\r\n     border: none;\r\n     text-align: center;\r\n     text-decoration: none;\r\n     display: inline-block;\r\n     font-size: 16px;\r\n }\r\n\r\n.pdf-download {\r\n    text-align: center;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    font-size: 16px;\r\n    padding : 20px;\r\n }\r\n\r\nlabel {\r\n    font-size : 18px;\r\n}\r\n\r\n\r\n "
+module.exports = ".prediction-table-division {\n    padding : 40px;\n}\n\n.prediction-table{\n    border: 4px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n.prediction-tr {\n    border: 4px solid black;\n    padding: 2px;\n    text-align: center;\n}\n\n.prediction-td { \n    border: 4px solid black;\n    padding: 2px;\n    text-align: center;\n}\n\n.downloadable-table { \n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n.downloadable-td {\n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n.downloadable-tr { \n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n.buttons {\n     padding : 6px;\n }\n\n.button-pdf {\n     padding : 6px;\n     color: white;\n     background-color: #4CAF50; /* Green */\n     border: none;\n     text-align: center;\n     text-decoration: none;\n     display: inline-block;\n     font-size: 16px;\n }\n\n.pdf-download {\n    text-align: center;\n    text-decoration: none;\n    display: inline-block;\n    font-size: 16px;\n    padding : 20px;\n }\n\nlabel {\n    font-size : 18px;\n}\n\n\n "
 
 /***/ }),
 
@@ -339,7 +339,7 @@ module.exports = ".prediction-table-division {\r\n    padding : 40px;\r\n}\r\n\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n<div class=\"col-md-8 prediction-table-division\">\r\n  <u><h1>All Details Page - Home Page</h1></u><br>\r\n  <table class=\"prediction-table\" *ngIf=\"!pdfDownload\">\r\n    <tr class=\"prediction-tr\">\r\n      <th class=\"prediction-tr\">Product ID</th>\r\n      <th class=\"prediction-tr\">Product Name</th>\r\n      <th class=\"prediction-tr\">Quantity</th>\r\n      <th class=\"prediction-tr\">Created-till-now</th>\r\n      <th class=\"prediction-tr\">Predicted</th>\r\n      <th class=\"prediction-tr\">Status</th>\r\n      <th class=\"prediction-tr\">Ordered Time</th>\r\n      <th class=\"prediction-tr\">Current Status</th>\r\n    </tr>\r\n    <tr class=\"prediction-tr\" *ngFor=\"let order of finalDataArray\">\r\n      <td class=\"prediction-tr\">{{order.productId}}</td>\r\n      <td class=\"prediction-tr\">{{order.productName}}</td>\r\n      <td class=\"prediction-tr\">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')}}\r\n      </td>\r\n      <td class=\"prediction-tr\">{{order.createdTillNow}}</td>\r\n      <td class=\"prediction-tr\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\r\n      <td class=\"prediction-tr\" *ngIf=\"order.quantity > 0 && order.predictedQuantity && !order.status\" class=\"btn btn-primary\"\r\n        (click)=\"updateStatus(order)\">Done</td>\r\n      <td class=\"prediction-tr\" *ngIf=\"!(order.quantity > 0 && order.predictedQuantity && !order.status)\" class=\"btn btn-primary\"\r\n        disabled>Done</td>\r\n      <td class=\"prediction-tr\">{{ order.orderTimestamp }}</td>\r\n      <td class=\"prediction-tr\" *ngIf=\"order.status\" style=\"background-color:green;\">{{ 'Completed' }}</td>\r\n      <td class=\"prediction-tr\" *ngIf=\"!order.status && (order.quantity === -1) && !order.createdTillNow\" style=\"background-color:blue;\">{{ 'No Orders Today' }}</td>\r\n      <td class=\"prediction-tr\" *ngIf=\"(!order.status && (order.quantity > -1))\" style=\"background-color:yellow;\">{{ 'In Progress' }}</td>\r\n      <td class=\"prediction-tr\" *ngIf=\"(order.quantity === 0 && order.predictedQuantity===-1)\" style=\"background-color:yellow;\">{{ 'No Status' }}</td>\r\n    </tr>\r\n  </table>\r\n</div>\r\n<div class=\"col-md-4\">\r\n  <div class=\"buttons\">\r\n    <input type=\"button\" value=\"Download PDF\" (click)=\"captureScreen()\" class=\"button-pdf\"/>\r\n  </div>\r\n\r\n\r\n<div class=\"buttons\">\r\n  <button class=\"btn btn-primary\" (click)=\"navigateToSendPrediction()\">Go to send Prediction page</button> \r\n</div>\r\n<div class=\"buttons\"><button class=\"btn btn-primary\" (click)=\"navigateToPlaceOrder()\">Create new Order page</button> &nbsp; &nbsp;</div>\r\n  \r\n <div class=\"buttons\"><button class=\"btn btn-primary\" (click)=\"addNewProduct()\">Add new Product page</button></div> \r\n\r\n\r\n<!-- for PDF Generation -->\r\n<div style=\"opacity: 0;\">\r\n  <div class=\"pdf-download\" id=\"contentToConvert\">\r\n    <h1>Production - Prediction Report</h1>\r\n    <table class=\"downloadable-table\">\r\n      <tr class=\"downloadable-tr\">\r\n        <th class=\"downloadable-td\">Dish Name</th>\r\n        <th class=\"downloadable-td\">Produced</th>\r\n        <th class=\"downloadable-td\">Predicted</th>\r\n      </tr>\r\n      <tr class=\"downloadable-table\" *ngFor=\"let order of arrayUnique\">\r\n        <td class=\"downloadable-td\">{{order.productName}}</td>\r\n        <td class=\"downloadable-td\">{{order.createdTillNow}}</td>\r\n        <td class=\"downloadable-td\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\r\n      </tr>\r\n    </table>\r\n  </div>\r\n</div>\r\n</div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\n<div class=\"col-md-8 prediction-table-division\">\n  <u><h1>All Details Page - Home Page</h1></u><br>\n  <table class=\"prediction-table\" *ngIf=\"!pdfDownload\">\n    <tr class=\"prediction-tr\">\n      <th class=\"prediction-tr\">Product ID</th>\n      <th class=\"prediction-tr\">Product Name</th>\n      <th class=\"prediction-tr\">Quantity</th>\n      <th class=\"prediction-tr\">Created-till-now</th>\n      <th class=\"prediction-tr\">Predicted</th>\n      <th class=\"prediction-tr\">Status</th>\n      <th class=\"prediction-tr\">Ordered Time</th>\n      <th class=\"prediction-tr\">Current Status</th>\n    </tr>\n    <tr class=\"prediction-tr\" *ngFor=\"let order of finalDataArray\">\n      <td class=\"prediction-tr\">{{order.productId}}</td>\n      <td class=\"prediction-tr\">{{order.productName}}</td>\n      <td class=\"prediction-tr\">{{order.quantity > 0 ? order.quantity : ((!order.createdTillNow) ? 'No Orders received today...' : 'Order complete')}}\n      </td>\n      <td class=\"prediction-tr\">{{order.createdTillNow}}</td>\n      <td class=\"prediction-tr\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.quantity > 0 && order.predictedQuantity && !order.status\" class=\"btn btn-primary\"\n        (click)=\"updateStatus(order)\">Done</td>\n      <td class=\"prediction-tr\" *ngIf=\"!(order.quantity > 0 && order.predictedQuantity && !order.status)\" class=\"btn btn-primary\"\n        disabled>Done</td>\n      <td class=\"prediction-tr\">{{ order.orderTimestamp }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"order.status\" style=\"background-color:green;\">{{ 'Completed' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"!order.status && (order.quantity === -1) && !order.createdTillNow\" style=\"background-color:blue;\">{{ 'No Orders Today' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(!order.status && (order.quantity > -1))\" style=\"background-color:yellow;\">{{ 'In Progress' }}</td>\n      <td class=\"prediction-tr\" *ngIf=\"(order.quantity === 0 && order.predictedQuantity===-1)\" style=\"background-color:yellow;\">{{ 'No Status' }}</td>\n    </tr>\n  </table>\n</div>\n<div class=\"col-md-4\">\n  <div class=\"buttons\">\n    <input type=\"button\" value=\"Download PDF\" (click)=\"captureScreen()\" class=\"button-pdf\"/>\n  </div>\n\n\n<div class=\"buttons\">\n  <button class=\"btn btn-primary\" (click)=\"navigateToSendPrediction()\">Go to send Prediction page</button> \n</div>\n<div class=\"buttons\"><button class=\"btn btn-primary\" (click)=\"navigateToPlaceOrder()\">Create new Order page</button> &nbsp; &nbsp;</div>\n  \n <div class=\"buttons\"><button class=\"btn btn-primary\" (click)=\"addNewProduct()\">Add new Product page</button></div> \n\n\n<!-- for PDF Generation -->\n<div style=\"opacity: 0;\">\n  <div class=\"pdf-download\" id=\"contentToConvert\">\n    <h1>Production - Prediction Report</h1>\n    <table class=\"downloadable-table\">\n      <tr class=\"downloadable-tr\">\n        <th class=\"downloadable-td\">Dish Name</th>\n        <th class=\"downloadable-td\">Produced</th>\n        <th class=\"downloadable-td\">Predicted</th>\n      </tr>\n      <tr class=\"downloadable-table\" *ngFor=\"let order of arrayUnique\">\n        <td class=\"downloadable-td\">{{order.productName}}</td>\n        <td class=\"downloadable-td\">{{order.createdTillNow}}</td>\n        <td class=\"downloadable-td\">{{order.predictedQuantity !== -1 ? order.predictedQuantity : 'No prediction Data' }}</td>\n      </tr>\n    </table>\n  </div>\n</div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -528,7 +528,7 @@ var AllDetailsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n form { \r\n     width: 40%;\r\n     padding: 40px;\r\n }\r\n\r\n option {\r\n     width : 250px;\r\n }\r\n\r\n select {\r\n    width : 230px;\r\n }\r\n\r\n label {\r\n    font-size : 18px;\r\n}\r\n\r\n /* \r\n .input-section {\r\n     padding : 40px;\r\n }\r\n\r\n input {\r\n     width : 100px;\r\n }\r\n\r\n label  {\r\n     width : 200px;\r\n }\r\n\r\n select {\r\n    width : 200px;\r\n } */"
+module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n form { \n     width: 40%;\n     padding: 40px;\n }\n\n option {\n     width : 250px;\n }\n\n select {\n    width : 230px;\n }\n\n label {\n    font-size : 18px;\n}\n\n /* \n .input-section {\n     padding : 40px;\n }\n\n input {\n     width : 100px;\n }\n\n label  {\n     width : 200px;\n }\n\n select {\n    width : 200px;\n } */"
 
 /***/ }),
 
@@ -539,7 +539,7 @@ module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    pad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n  <div class=\"input-section\">\r\n  <form>\r\n      <u><h1>Place new Order</h1></u> <br>\r\n    <div class=\"form-group\">\r\n      <label for=\"username\">Username : </label><br>\r\n      <input type=\"text\" class=\"form-control\" id=\"username\" name=\"username\" [(ngModel)]=\"username\" required>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"productName\">Select Product : </label><br>\r\n      <select name=\"selectedProductObject\" id=\"selectedProductObject\" [(ngModel)]=\"selectedProductObject\">\r\n        <option value=\"0\">-- Select --</option>\r\n        <option *ngFor=\"let product of allProducts\" value={{product._id}}>\r\n          {{product.productname}}\r\n        </option>\r\n      </select>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label for=\"orderedQuantity\">Quantity : </label><br>\r\n      <input type=\"text\" class=\"form-control\" id=\"orderedQuantity\" name=\"orderedQuantity\" [(ngModel)]=\"orderedQuantity\" required>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"createOrder()\">Order</button>\r\n    </div>\r\n  </form>\r\n</div>\r\n</div>\r\n<div class=\"col-md-6\">\r\n  <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\r\n</div>\r\n</div>"
+module.exports = "<div class=\"row\">\n<div class=\"col-md-6\">\n  <div class=\"input-section\">\n  <form>\n      <u><h1>Place new Order</h1></u> <br>\n    <div class=\"form-group\">\n      <label for=\"username\">Username : </label><br>\n      <input type=\"text\" class=\"form-control\" id=\"username\" name=\"username\" [(ngModel)]=\"username\" required>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productName\">Select Product : </label><br>\n      <select name=\"selectedProductObject\" id=\"selectedProductObject\" [(ngModel)]=\"selectedProductObject\">\n        <option value=\"0\">-- Select --</option>\n        <option *ngFor=\"let product of allProducts\" value={{product._id}}>\n          {{product.productname}}\n        </option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"orderedQuantity\">Quantity : </label><br>\n      <input type=\"text\" class=\"form-control\" id=\"orderedQuantity\" name=\"orderedQuantity\" [(ngModel)]=\"orderedQuantity\" required>\n    </div>\n    <div class=\"form-group\">\n      <button type=\"submit\" clas=\"btn btn-success\" (click)=\"createOrder()\">Order</button>\n    </div>\n  </form>\n</div>\n</div>\n<div class=\"col-md-6\">\n  <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\n</div>\n</div>"
 
 /***/ }),
 
@@ -689,7 +689,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  failure-page works!\r\n</p>\r\n"
+module.exports = "<p>\n  failure-page works!\n</p>\n"
 
 /***/ }),
 
@@ -804,7 +804,7 @@ var NotFoundPageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n form { \r\n    width: 30%;\r\n    padding: 2px;\r\n}"
+module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n form { \n    width: 30%;\n    padding: 2px;\n}"
 
 /***/ }),
 
@@ -815,7 +815,7 @@ module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    pad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <table class=\"prediction-table\">\r\n    <tr>\r\n      <td>Product ID</td>\r\n      <td>Product Name</td>\r\n      <td>Quantity</td>\r\n      <td>Status</td>\r\n    </tr>\r\n    <tr *ngFor=\"let order of allOrderDetails\">\r\n      <td>{{order.productid}}</td>\r\n      <td>{{order.productname}}</td>\r\n      <td>{{order.quantity}}</td>\r\n      <td *ngIf=\"order.status===false\"><button  class=\"btn btn-primary\" (click)=\"updateStatus(order)\">In Progress</button></td>\r\n      <td *ngIf=\"order.status===true\"><button  class=\"btn btn-success\" disabled>Completed</button></td>\r\n      <!-- <td>{{order.status}}</td> -->\r\n    </tr>\r\n  </table>\r\n</div>"
+module.exports = "<div>\n  <table class=\"prediction-table\">\n    <tr>\n      <td>Product ID</td>\n      <td>Product Name</td>\n      <td>Quantity</td>\n      <td>Status</td>\n    </tr>\n    <tr *ngFor=\"let order of allOrderDetails\">\n      <td>{{order.productid}}</td>\n      <td>{{order.productname}}</td>\n      <td>{{order.quantity}}</td>\n      <td *ngIf=\"order.status===false\"><button  class=\"btn btn-primary\" (click)=\"updateStatus(order)\">In Progress</button></td>\n      <td *ngIf=\"order.status===true\"><button  class=\"btn btn-success\" disabled>Completed</button></td>\n      <!-- <td>{{order.status}}</td> -->\n    </tr>\n  </table>\n</div>"
 
 /***/ }),
 
@@ -896,7 +896,7 @@ var OrdersDisplayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n form { \r\n     width: 40%;\r\n     padding: 40px;\r\n }\r\n\r\n option {\r\n     width : 250px;\r\n }\r\n\r\n select {\r\n    width : 230px;\r\n }\r\n\r\n label {\r\n     font-size : 18px;\r\n }"
+module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n form { \n     width: 40%;\n     padding: 40px;\n }\n\n option {\n     width : 250px;\n }\n\n select {\n    width : 230px;\n }\n\n label {\n     font-size : 18px;\n }"
 
 /***/ }),
 
@@ -907,7 +907,7 @@ module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    pad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-8\">\r\n      <form>\r\n          <u><h1>Place new Order</h1></u> <br>\r\n          <div class=\"form-group\"> \r\n            <label for=\"productName\">Select Product: </label> <br>\r\n            <select name=\"selectedProductObject\" id=\"selectedProductObject\" [(ngModel)]=\"selectedProductObject\">\r\n                <option value=\"0\">-- Select --</option>\r\n                <option *ngFor=\"let product of allProducts\" value={{product.prediction[0]._id}} >\r\n                    {{product.productname}}\r\n                </option>\r\n            </select>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"predictedQuantity\">Predicted Quantity</label><br>\r\n            <input type=\"text\" class=\"form-control\" id=\"predictedQuantity\" name=\"predictedQuantity\" [(ngModel)]=\"predictedQuantity\" required>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <button type=\"submit\" clas=\"btn btn-success\" (click)=\"sendPrediction()\">Send Prediction</button>\r\n          </div>\r\n          </form>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n      <div>\r\n          <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\r\n        </div>\r\n  </div>\r\n</div>\r\n\r\n \r\n  "
+module.exports = "<div class=\"row\">\n\n  <div class=\"col-md-8\">\n      <form>\n          <u><h1>Place new Order</h1></u> <br>\n          <div class=\"form-group\"> \n            <label for=\"productName\">Select Product: </label> <br>\n            <select name=\"selectedProductObject\" id=\"selectedProductObject\" [(ngModel)]=\"selectedProductObject\">\n                <option value=\"0\">-- Select --</option>\n                <option *ngFor=\"let product of allProducts\" value={{product.prediction[0]._id}} >\n                    {{product.productname}}\n                </option>\n            </select>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"predictedQuantity\">Predicted Quantity</label><br>\n            <input type=\"text\" class=\"form-control\" id=\"predictedQuantity\" name=\"predictedQuantity\" [(ngModel)]=\"predictedQuantity\" required>\n          </div>\n          <div class=\"form-group\">\n            <button type=\"submit\" clas=\"btn btn-success\" (click)=\"sendPrediction()\">Send Prediction</button>\n          </div>\n          </form>\n  </div>\n  <div class=\"col-md-4\">\n      <div>\n          <button class=\"btn btn-primary\" (click)=\"navigateToHomepage()\">Home Page</button>\n        </div>\n  </div>\n</div>\n\n \n  "
 
 /***/ }),
 
@@ -1011,7 +1011,7 @@ var PredictionsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    padding: 2px;\r\n    text-align: center;\r\n }\r\n\r\n/* .predicted-table {\r\n    color: red;\r\n    border : 10px;\r\n} */"
+module.exports = "table, tr, th, td {\n    border: 2px solid black;\n    padding: 2px;\n    text-align: center;\n }\n\n/* .predicted-table {\n    color: red;\n    border : 10px;\n} */"
 
 /***/ }),
 
@@ -1022,7 +1022,7 @@ module.exports = "table, tr, th, td {\r\n    border: 2px solid black;\r\n    pad
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <table class=\"prediction-table\">\r\n    <tr>\r\n      <td>Product ID</td>\r\n      <td>Product Name</td>\r\n      <td>Predicted quantity</td>\r\n    </tr>\r\n    <tr *ngFor=\"let product of allPredictionDetails\">\r\n      <td>{{product.productid}}</td>\r\n      <td>{{product.productname}}</td>\r\n      <td>{{product.predictedquantity}}</td>\r\n    </tr>\r\n  </table>\r\n</div>\r\n<br>\r\n<div>\r\n  <button (click)=\"navigateToAllOrders()\">Go to All Orders</button> &nbsp;\r\n  <button (click)=\"NavigateToCreatePrediction()\">Create Prediction</button>\r\n</div>"
+module.exports = "<div>\n  <table class=\"prediction-table\">\n    <tr>\n      <td>Product ID</td>\n      <td>Product Name</td>\n      <td>Predicted quantity</td>\n    </tr>\n    <tr *ngFor=\"let product of allPredictionDetails\">\n      <td>{{product.productid}}</td>\n      <td>{{product.productname}}</td>\n      <td>{{product.predictedquantity}}</td>\n    </tr>\n  </table>\n</div>\n<br>\n<div>\n  <button (click)=\"navigateToAllOrders()\">Go to All Orders</button> &nbsp;\n  <button (click)=\"NavigateToCreatePrediction()\">Create Prediction</button>\n</div>"
 
 /***/ }),
 
@@ -1112,7 +1112,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  success-page works!\r\n</p>\r\n"
+module.exports = "<p>\n  success-page works!\n</p>\n"
 
 /***/ }),
 
@@ -1589,7 +1589,7 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     API_BASE: {
-        faasos_api: 'https://glacial-castle-43349.herokuapp.com/api/faasos/'
+        faasos_api: 'http://localhost:8080/api/faasos/'
     }
 };
 /*faasos_api : 'http://localhost:8080/api/faasos/'
@@ -1636,7 +1636,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\prashit.prakhar\Desktop\Faasos-API\Faasos-API\faasos-spa\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/prashitprakhar/Desktop/All Projects/Faasos-Assignment/Faasos-API/faasos-spa/src/main.ts */"./src/main.ts");
 
 
 /***/ })

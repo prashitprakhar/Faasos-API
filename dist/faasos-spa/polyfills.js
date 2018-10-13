@@ -5473,7 +5473,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\prashit.prakhar\Desktop\Faasos-API\Faasos-API\faasos-spa\src\polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /Users/prashitprakhar/Desktop/All Projects/Faasos-Assignment/Faasos-API/faasos-spa/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
